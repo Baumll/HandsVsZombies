@@ -13,6 +13,8 @@ public class ZombieScript : MonoBehaviour
     private Vector2 velocity;
     private Vector2 smoothDeltaPosition;
 
+    public Transform MovePositionTransform { get => movePositionTransform; set => movePositionTransform = value; }
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
