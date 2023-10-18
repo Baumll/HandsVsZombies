@@ -81,5 +81,10 @@ public class ZombieScript : MonoBehaviour
     void Update()
     {
         navMeshAgent.destination = movePositionTransform.position;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.enabled = false;
+        }
     }
 }
