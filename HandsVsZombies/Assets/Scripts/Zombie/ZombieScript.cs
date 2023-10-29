@@ -82,11 +82,15 @@ public class ZombieScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.destination = movePositionTransform.position;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (movePositionTransform)
         {
-            animator.enabled = false;
+            navMeshAgent.destination = movePositionTransform.position;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.enabled = false;
+            }
         }
+
     }
 }
