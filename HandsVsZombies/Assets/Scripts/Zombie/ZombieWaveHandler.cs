@@ -15,7 +15,7 @@ public class ZombieWaveHandler : MonoBehaviour
     [SerializeField] private float waveLenghtScaling = 1.25f;
     [SerializeField] private float timeBetweenWaves = 10f;
     [SerializeField] private float timeBetweenWavesScaling = 1.1f;
-    private int wave = 0;
+    private int wave = 1;
     private int zombiesSpawntThisWave = 0;
     private float waveTime = 0;
     private bool isPause = false;
@@ -35,33 +35,33 @@ public class ZombieWaveHandler : MonoBehaviour
         waveTime += Time.deltaTime;
         if (isPause)
         {
-            if (waveTime >= waveLenght * waveLenghtScaling * wave)
+            if (waveTime >= waveLenght + (waveLenght * waveLenghtScaling * wave))
             {
                 wave += 1;
                 waveTime = 0;
                 isPause = !isPause;
+                zombiesSpawntThisWave = 0;
             }
         }
         else
         {
-            if (waveTime >= timeBetweenWaves * timeBetweenWavesScaling * wave)
+            if (waveTime >= timeBetweenWaves + (timeBetweenWaves * timeBetweenWavesScaling * wave))
             {
                 waveTime = 0;
                 isPause = !isPause;
             }
-        }
-
-        if (isPause)
-        {
-            if(zombiesPerWave - zombiesSpawntThisWave > 0)
+            else
             {
-                float secondPerZombie = (waveLenght * waveLenghtScaling * wave ) / (zombiesPerWave * zombiesPerWaveScaling * wave);
-                if (Mathf.Floor(secondPerZombie * waveTime) > zombiesSpawntThisWave)
+                if (zombiesPerWave - zombiesSpawntThisWave > 0 && wave > 0)
                 {
-                    //Spawn Zombie
-                    GameObject spawner = spawnerList[Random.Range(0, spawnerList.Length - 1)];
-                    spawner.GetComponent<ZombieSpawnScript>().SpawnZobie();
-                    zombiesSpawntThisWave += 1;
+                    float secondPerZombie = (timeBetweenWaves + (timeBetweenWaves * timeBetweenWavesScaling * wave))/ zombiesSpawntThisWave;
+                    if (Mathf.Floor(secondPerZombie * waveTime) > zombiesSpawntThisWave)
+                    {
+                        //Spawn Zombie
+                        GameObject spawner = spawnerList[Random.Range(0, spawnerList.Length)];
+                        spawner.GetComponent<ZombieSpawnScript>().SpawnZobie();
+                        zombiesSpawntThisWave += 1;
+                    }
                 }
             }
         }

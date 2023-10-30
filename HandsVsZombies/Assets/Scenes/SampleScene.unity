@@ -525,11 +525,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesPerWave: 5
-  zombiesPerWaveScaling: 1.5
-  waveLenght: 10
-  waveLenghtScaling: 1.25
-  timeBetweenWaves: 10
-  timeBetweenWavesScaling: 1.1
+  zombiesPerWaveScaling: 0
+  waveLenght: 5
+  waveLenghtScaling: 0
+  timeBetweenWaves: 5
+  timeBetweenWavesScaling: 0
 --- !u!4 &557382386
 Transform:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 3955355104854408800, guid: 9df48bb636c000844aaf077632ce586c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.57
+      value: 12.17
       objectReference: {fileID: 0}
     - target: {fileID: 3955355104854408800, guid: 9df48bb636c000844aaf077632ce586c,
         type: 3}
@@ -571,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 3955355104854408800, guid: 9df48bb636c000844aaf077632ce586c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.29877448
+      value: 18.53
       objectReference: {fileID: 0}
     - target: {fileID: 3955355104854408800, guid: 9df48bb636c000844aaf077632ce586c,
         type: 3}
