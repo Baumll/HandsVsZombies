@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 2104533459384680194}
   - component: {fileID: 8877568135710369577}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: ZombieGirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

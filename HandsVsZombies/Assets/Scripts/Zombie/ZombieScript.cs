@@ -5,8 +5,19 @@ using UnityEngine.AI;
 
 public class ZombieScript : MonoBehaviour
 {
+    public enum ZombieState
+    {
+        Walking,
+        Ragdoll
+    }
+    //For ragdoll
+    private Rigidbody[] ragdollRigidbodyList;
+    private CharacterJoint[] characterJointyList;
+    private List<GameObject> characterJointGameobjectList;
+    public ZombieState currentState = ZombieState.Walking;
 
     [SerializeField] private Transform movePositionTransform;
+
     private NavMeshAgent navMeshAgent;
     private Animator animator;
 
@@ -15,8 +26,26 @@ public class ZombieScript : MonoBehaviour
 
     public Transform MovePositionTransform { get => movePositionTransform; set => movePositionTransform = value; }
 
+    //LimbRenderer
+    public GameObject LUpperLeg;
+    public GameObject LCalve;
+    public GameObject RUpperLeg;
+    public GameObject RCalve;
+    public GameObject LUpperArm;
+    public GameObject LWrist;
+    public GameObject LHand;
+    public GameObject RUpperArm;
+    public GameObject RWrist;
+    public GameObject RHand;
+    public GameObject Head;
+
     private void Awake()
     {
+        ragdollRigidbodyList = GetComponentsInChildren<Rigidbody>();
+        characterJointyList = GetComponentsInChildren<CharacterJoint>();
+
+        
+
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
 
@@ -76,11 +105,91 @@ public class ZombieScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var joint in characterJointyList)
+        {
+            characterJointGameobjectList.Add(joint.gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
+    {
+        switch (currentState)
+        {
+            case ZombieState.Walking:
+                WalkingBehavior();
+                break;
+            case ZombieState.Ragdoll:
+                RagdollBehavior();
+                break;
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        List<GameObject> ceepList = new List<GameObject>();
+        foreach (var limb in characterJointGameobjectList)
+        {
+            CharacterJoint joint = limb.GetComponent<CharacterJoint>();
+            if (joint == null)
+            {
+                Debug.Log("Kaputt :(");
+                switch (limb.name)
+                {
+                    case "Base HumanLLegThigh":
+
+                        break;
+
+                    case "Base HumanRLegThigh":
+                        break;
+
+                    case "Base HumanLArmUpperarm":
+                        break;
+
+                    case "Base HumanRArmUpperarm":
+                        break;
+
+                    case "Base HumanHead":
+                        break;
+                        
+                }
+                //jointObject.SetActive(false);
+            }
+            else
+            {
+                ceepList.Add(limb);
+            }
+        }
+        characterJointGameobjectList = ceepList;
+    }
+
+    private void DisableRagdoll()
+    {
+        foreach (var rigidtbody in ragdollRigidbodyList)
+        {
+            if (rigidtbody)
+            {
+                rigidtbody.isKinematic = true;
+            }
+
+        }
+    }
+
+    private void EnanbleRagdoll()
+    {
+        foreach (var rigidtbody in ragdollRigidbodyList)
+        {
+            if (rigidtbody)
+            {
+                rigidtbody.isKinematic = false;
+            }
+        }
+    }
+
+
+    private void WalkingBehavior()
     {
         if (movePositionTransform)
         {
@@ -91,6 +200,9 @@ public class ZombieScript : MonoBehaviour
                 animator.enabled = false;
             }
         }
+    }
 
+    private void RagdollBehavior()
+    {
     }
 }
