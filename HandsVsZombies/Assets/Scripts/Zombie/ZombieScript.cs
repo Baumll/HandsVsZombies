@@ -17,6 +17,12 @@ public class ZombieScript : MonoBehaviour
 
     private void Awake()
     {
+<<<<<<< Updated upstream
+=======
+        ragdollRigidbodyList = GetComponentsInChildren<Rigidbody>();
+        characterJointyList = GetComponentsInChildren<CharacterJoint>();
+
+>>>>>>> Stashed changes
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
 
@@ -76,7 +82,10 @@ public class ZombieScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         
+=======
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -88,5 +97,55 @@ public class ZombieScript : MonoBehaviour
         {
             animator.enabled = false;
         }
+<<<<<<< Updated upstream
+=======
+
+    }
+
+    private void FixedUpdate()
+    {
+
+    }
+
+    private void DisableRagdoll()
+    {
+        foreach (var rigidtbody in ragdollRigidbodyList)
+        {
+            if (rigidtbody)
+            {
+                rigidtbody.isKinematic = true;
+            }
+
+        }
+    }
+
+    private void EnanbleRagdoll()
+    {
+        foreach (var rigidtbody in ragdollRigidbodyList)
+        {
+            if (rigidtbody)
+            {
+                rigidtbody.isKinematic = false;
+            }
+        }
+    }
+
+
+    private void WalkingBehavior()
+    {
+        if (movePositionTransform)
+        {
+            navMeshAgent.destination = movePositionTransform.position;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.enabled = false;
+            }
+        }
+    }
+
+    private void RagdollBehavior()
+    {
+>>>>>>> Stashed changes
     }
 }
