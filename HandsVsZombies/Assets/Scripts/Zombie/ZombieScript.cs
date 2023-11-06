@@ -27,24 +27,12 @@ public class ZombieScript : MonoBehaviour
     public Transform MovePositionTransform { get => movePositionTransform; set => movePositionTransform = value; }
 
     //LimbRenderer
-    public GameObject LUpperLeg;
-    public GameObject LCalve;
-    public GameObject RUpperLeg;
-    public GameObject RCalve;
-    public GameObject LUpperArm;
-    public GameObject LWrist;
-    public GameObject LHand;
-    public GameObject RUpperArm;
-    public GameObject RWrist;
-    public GameObject RHand;
-    public GameObject Head;
+    public bool crawl;
 
     private void Awake()
     {
         ragdollRigidbodyList = GetComponentsInChildren<Rigidbody>();
         characterJointyList = GetComponentsInChildren<CharacterJoint>();
-
-        
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
@@ -128,41 +116,6 @@ public class ZombieScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        List<GameObject> ceepList = new List<GameObject>();
-        foreach (var limb in characterJointGameobjectList)
-        {
-            CharacterJoint joint = limb.GetComponent<CharacterJoint>();
-            if (joint == null)
-            {
-                Debug.Log("Kaputt :(");
-                switch (limb.name)
-                {
-                    case "Base HumanLLegThigh":
-
-                        break;
-
-                    case "Base HumanRLegThigh":
-                        break;
-
-                    case "Base HumanLArmUpperarm":
-                        break;
-
-                    case "Base HumanRArmUpperarm":
-                        break;
-
-                    case "Base HumanHead":
-                        break;
-                        
-                }
-                //jointObject.SetActive(false);
-            }
-            else
-            {
-                ceepList.Add(limb);
-            }
-        }
-        characterJointGameobjectList = ceepList;
     }
 
     private void DisableRagdoll()
@@ -204,5 +157,11 @@ public class ZombieScript : MonoBehaviour
 
     private void RagdollBehavior()
     {
+    }
+
+    public void LoseLeg()
+    {
+        crawl = true;
+        animator.SetTrigger("LoseLeg");
     }
 }

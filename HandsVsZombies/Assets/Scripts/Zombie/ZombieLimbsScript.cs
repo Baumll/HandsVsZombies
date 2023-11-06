@@ -6,6 +6,7 @@ public class ZombieLimbsScript : MonoBehaviour
 {
 
     public GameObject[] renderer;
+    public bool isLeg;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class ZombieLimbsScript : MonoBehaviour
     void OnJointBreak(float breakForce)
     {
         disableLimb();
+        if (isLeg)
+        {
+            transform.root.GetComponent<ZombieScript>().LoseLeg();
+        }
     }
 
 
