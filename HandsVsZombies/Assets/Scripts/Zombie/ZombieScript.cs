@@ -20,6 +20,7 @@ public class ZombieScript : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
+    private CharacterController characterController;
 
     private Vector2 velocity;
     private Vector2 smoothDeltaPosition;
@@ -36,6 +37,7 @@ public class ZombieScript : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
 
         animator.applyRootMotion = true;
         navMeshAgent.updatePosition = false;
@@ -120,6 +122,9 @@ public class ZombieScript : MonoBehaviour
 
     public void DisableRagdoll()
     {
+        Debug.Log("Stand Up");
+        animator.enabled = true;
+        characterController.enabled = true;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
             if (rigidtbody)
@@ -131,6 +136,8 @@ public class ZombieScript : MonoBehaviour
 
     public void EnanbleRagdoll()
     {
+        animator.enabled = false;
+        characterController.enabled = false;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
             if (rigidtbody)
@@ -146,7 +153,7 @@ public class ZombieScript : MonoBehaviour
         if (movePositionTransform)
         {
             navMeshAgent.destination = movePositionTransform.position;
-            if (Vector3.Distance(MovePositionTransform.position, transform.position) < 1f)
+            if (Vector3.Distance(MovePositionTransform.position, transform.position) < 7f)
             {
                 animator.SetTrigger("Stop");
             }
@@ -154,11 +161,10 @@ public class ZombieScript : MonoBehaviour
             {
                 animator.SetTrigger("Go");
             }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                animator.enabled = false;
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.PageUp))
+        {
+            EnanbleRagdoll();
         }
     }
 
@@ -168,6 +174,12 @@ public class ZombieScript : MonoBehaviour
         {
             DisableRagdoll();
         }
+
+        if (Input.GetKeyDown(KeyCode.PageUp))
+        {
+            DisableRagdoll();
+        }
+
     }
 
     public void LoseLeg()

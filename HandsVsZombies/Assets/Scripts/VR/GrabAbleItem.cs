@@ -47,7 +47,6 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
 
         grabber = spherePointer;
         body.isKinematic = true;
-       
         transform.parent = spherePointer.transform;
 
         transform.localPosition = Vector3.zero;
