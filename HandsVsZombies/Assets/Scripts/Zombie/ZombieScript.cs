@@ -118,7 +118,7 @@ public class ZombieScript : MonoBehaviour
     {
     }
 
-    private void DisableRagdoll()
+    public void DisableRagdoll()
     {
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
@@ -126,11 +126,10 @@ public class ZombieScript : MonoBehaviour
             {
                 rigidtbody.isKinematic = true;
             }
-
         }
     }
 
-    private void EnanbleRagdoll()
+    public void EnanbleRagdoll()
     {
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
@@ -147,6 +146,14 @@ public class ZombieScript : MonoBehaviour
         if (movePositionTransform)
         {
             navMeshAgent.destination = movePositionTransform.position;
+            if (Vector3.Distance(MovePositionTransform.position, transform.position) < 1f)
+            {
+                animator.SetTrigger("Stop");
+            }
+            else
+            {
+                animator.SetTrigger("Go");
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -157,6 +164,10 @@ public class ZombieScript : MonoBehaviour
 
     private void RagdollBehavior()
     {
+        if (transform.parent == null)
+        {
+            DisableRagdoll();
+        }
     }
 
     public void LoseLeg()

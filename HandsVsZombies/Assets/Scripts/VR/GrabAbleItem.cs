@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.Input;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NearInteractionGrabbable), typeof(Rigidbody))]
 public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
@@ -13,7 +13,9 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
     private Vector3 ? lastPosition;
     private Vector3 velocity;
     private SpherePointer grabber;
-    
+    public UnityEvent OnGrabbt;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +52,9 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
 
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
-        
-        
+
+        OnGrabbt.Invoke();
+
         Debug.Log(spherePointer.PointerName);
     }
 
