@@ -20,7 +20,7 @@ public class VRSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        waiter(2);
+        waiter();
     }
     
     private void Reset()
@@ -32,10 +32,11 @@ public class VRSpawnScript : MonoBehaviour
         vRPlaySpace.transform.position = -world + transform.position;
     }
 
-    IEnumerator waiter(float time)
+    IEnumerator waiter()
     {
         //Wait for 4 seconds
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(4);
+        Debug.Log("Reset Camera");
         Reset();
     }
     // Update is called once per frame

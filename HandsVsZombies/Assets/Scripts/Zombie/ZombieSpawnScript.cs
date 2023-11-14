@@ -10,7 +10,7 @@ public class ZombieSpawnScript : MonoBehaviour
     [Tooltip("Time between zombie spawn in sec. ")]
     [Range(0, 100)]
     [SerializeField] private float spawnTime;
-    private float deltaSpawnTime = 0;
+    //private float deltaSpawnTime = 0;
 
     public GameObject zombie1 { get => zombie; set => zombie = value; }
 

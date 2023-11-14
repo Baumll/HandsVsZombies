@@ -20,7 +20,7 @@ public class ZombieScript : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
-    private CharacterController characterController;
+    //private CharacterController characterController;
 
     private Vector2 velocity;
     private Vector2 smoothDeltaPosition;
@@ -37,7 +37,7 @@ public class ZombieScript : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
 
         animator.applyRootMotion = true;
         navMeshAgent.updatePosition = false;
@@ -95,10 +95,6 @@ public class ZombieScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var joint in characterJointyList)
-        {
-            characterJointGameobjectList.Add(joint.gameObject);
-        }
     }
 
     // Update is called once per frame
@@ -124,25 +120,26 @@ public class ZombieScript : MonoBehaviour
     {
         Debug.Log("Stand Up");
         animator.enabled = true;
-        characterController.enabled = true;
+        //characterController.enabled = true;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
             if (rigidtbody)
             {
-                rigidtbody.isKinematic = true;
+                //rigidtbody.isKinematic = true;
             }
         }
     }
 
     public void EnanbleRagdoll()
     {
+        Debug.Log("Ragdoll");
         animator.enabled = false;
-        characterController.enabled = false;
+        //characterController.enabled = false;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
             if (rigidtbody)
             {
-                rigidtbody.isKinematic = false;
+                //rigidtbody.isKinematic = false;
             }
         }
     }

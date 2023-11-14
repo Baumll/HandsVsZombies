@@ -9,7 +9,7 @@ public class ZombieWaveHandler : MonoBehaviour
     [SerializeField] private float zombiesPerWave = 5f;
 
     [Tooltip("The next Wave is X times more Zombies ")]
-    [SerializeField] private float zombiesPerWaveScaling = 1.5f;
+    //[SerializeField] private float zombiesPerWaveScaling = 1.5f;
 
     [SerializeField] private float waveLenght = 10f;
     [SerializeField] private float waveLenghtScaling = 1.25f;
