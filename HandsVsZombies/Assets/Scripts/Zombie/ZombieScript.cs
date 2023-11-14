@@ -8,10 +8,12 @@ public class ZombieScript : MonoBehaviour
     public enum ZombieState
     {
         Walking,
-        Ragdoll
+        Ragdoll,
+        Crawling
     }
     //For ragdoll
     private Rigidbody[] ragdollRigidbodyList;
+    private GrabAbleItem[] grabAbleItemList;
     private CharacterJoint[] characterJointyList;
     private List<GameObject> characterJointGameobjectList;
     public ZombieState currentState = ZombieState.Walking;
@@ -34,6 +36,7 @@ public class ZombieScript : MonoBehaviour
     {
         ragdollRigidbodyList = GetComponentsInChildren<Rigidbody>();
         characterJointyList = GetComponentsInChildren<CharacterJoint>();
+        grabAbleItemList = GetComponentsInChildren<GrabAbleItem>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = navMeshAgent.GetComponent<Animator>();
@@ -120,6 +123,7 @@ public class ZombieScript : MonoBehaviour
     {
         Debug.Log("Stand Up");
         animator.enabled = true;
+        currentState = ZombieState.Walking; 
         //characterController.enabled = true;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
@@ -134,6 +138,7 @@ public class ZombieScript : MonoBehaviour
     {
         Debug.Log("Ragdoll");
         animator.enabled = false;
+        currentState = ZombieState.Ragdoll; 
         //characterController.enabled = false;
         foreach (var rigidtbody in ragdollRigidbodyList)
         {
@@ -147,10 +152,13 @@ public class ZombieScript : MonoBehaviour
 
     private void WalkingBehavior()
     {
-        if (movePositionTransform)
+        if (movePositionTransform && navMeshAgent)
         {
-            navMeshAgent.destination = movePositionTransform.position;
-            if (Vector3.Distance(MovePositionTransform.position, transform.position) < 7f)
+            if (!navMeshAgent.enabled)
+            {
+                navMeshAgent.destination = movePositionTransform.position;
+            }
+            if (Vector3.Distance(MovePositionTransform.position, transform.position) < .4f)
             {
                 animator.SetTrigger("Stop");
             }
@@ -167,10 +175,13 @@ public class ZombieScript : MonoBehaviour
 
     private void RagdollBehavior()
     {
-        if (transform.parent == null)
-        {
-            DisableRagdoll();
-        }
+        //foreach (var grabber in grabAbleItemList)
+        //{
+        //    if (!grabber.IsGrabbed)
+        //    {
+        //        DisableRagdoll();
+        //    }
+        //}
 
         if (Input.GetKeyDown(KeyCode.PageUp))
         {

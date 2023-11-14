@@ -20,7 +20,7 @@ public class VRSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        waiter();
+        StartCoroutine(waiter());
     }
     
     private void Reset()
@@ -35,7 +35,7 @@ public class VRSpawnScript : MonoBehaviour
     IEnumerator waiter()
     {
         //Wait for 4 seconds
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         Debug.Log("Reset Camera");
         Reset();
     }

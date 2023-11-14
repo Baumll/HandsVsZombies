@@ -25,7 +25,7 @@ public class ZombieLimbsScript : MonoBehaviour
         disableLimb();
         if (isLeg)
         {
-            transform.root.GetComponent<ZombieScript>().LoseLeg();
+            //transform.root.GetComponent<ZombieScript>().LoseLeg();
         }
     }
 
@@ -35,15 +35,15 @@ public class ZombieLimbsScript : MonoBehaviour
         Debug.Log("break!");
         ZombieLimbsScript[] characterJointyList = GetComponentsInChildren<ZombieLimbsScript>();
 
-        foreach(var joint in characterJointyList)
-        {
-            joint.disableLimb();
-        }
+        //foreach(var joint in characterJointyList)
+        //{
+        //    joint.disableLimb();
+        //}
 
         foreach (var limb in renderer)
         {
             limb.SetActive(false);
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

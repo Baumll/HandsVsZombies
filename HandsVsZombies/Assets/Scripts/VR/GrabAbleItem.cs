@@ -14,7 +14,9 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
     private Vector3 velocity;
     private SpherePointer grabber;
     public UnityEvent OnGrabbt;
+    private bool isGrabbed = false;
 
+    public bool IsGrabbed { get => isGrabbed; set => isGrabbed = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +54,9 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
+        isGrabbed = true;
         OnGrabbt.Invoke();
-
-        Debug.Log(spherePointer.PointerName);
+        Debug.Log("Grabb: " + spherePointer.PointerName);
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -73,7 +75,7 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
         }
 
         grabber = null;
-        
+        isGrabbed = false;
         transform.parent = parent;
         body.isKinematic = false;
         body.AddForce(velocity, ForceMode.VelocityChange);
