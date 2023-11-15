@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 2043890639183512756}
   m_Layer: 0
   m_Name: Base HumanLLegThigh
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4375,7 +4375,7 @@ GameObject:
   - component: {fileID: 3267312110700495651}
   m_Layer: 0
   m_Name: DrZombie 1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4388,7 +4388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7272550596712180464}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 9.466, y: 1.303, z: 0.062}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -4445,8 +4445,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 7272550596712180464}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 0.1
+  m_Radius: 0.1
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -4454,7 +4454,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -5529,7 +5529,7 @@ GameObject:
   - component: {fileID: 1673412126304427756}
   m_Layer: 0
   m_Name: Base HumanRThigh
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5599,7 +5599,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &685917601439122549
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -5716,7 +5716,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5737,13 +5737,13 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.14
-  m_Height: 0.4
-  m_Direction: 2
+  m_Radius: 0.34
+  m_Height: 1.43
+  m_Direction: 0
   m_Center: {x: -0.16, y: 0, z: 0}
 --- !u!54 &6089385834770895701
 Rigidbody:
@@ -5812,7 +5812,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &8714353387109581792
 GameObject:
   m_ObjectHideFlags: 0
