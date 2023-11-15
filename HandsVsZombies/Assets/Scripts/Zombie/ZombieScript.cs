@@ -154,7 +154,7 @@ public class ZombieScript : MonoBehaviour
     {
         if (movePositionTransform && navMeshAgent)
         {
-            if (!navMeshAgent.enabled)
+            if (navMeshAgent.enabled)
             {
                 navMeshAgent.destination = movePositionTransform.position;
             }

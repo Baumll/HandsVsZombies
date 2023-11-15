@@ -5672,6 +5672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7149725150401249787}
   - component: {fileID: 2664004210121792192}
+  - component: {fileID: 1141069671771186382}
   - component: {fileID: 6089385834770895701}
   - component: {fileID: 4197966837913404234}
   - component: {fileID: 3650306703967852960}
@@ -5715,12 +5716,35 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.27080226, y: 0.28194922, z: 0.3551271}
   m_Center: {x: -0.13540113, y: 0.0031102449, z: -0.00000014901161}
+--- !u!136 &1141069671771186382
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8695732065873987486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.14
+  m_Height: 0.4
+  m_Direction: 2
+  m_Center: {x: -0.16, y: 0, z: 0}
 --- !u!54 &6089385834770895701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5743,7 +5767,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

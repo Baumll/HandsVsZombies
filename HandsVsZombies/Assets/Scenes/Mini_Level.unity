@@ -683,7 +683,7 @@ Transform:
   m_GameObject: {fileID: 541961926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.878, y: 1.192, z: 0.478}
+  m_LocalPosition: {x: 8.997, y: 1.192, z: -0.517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1051,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 7509337799402473392, guid: d323049ba4fe447458d0cc1f9463ba1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: d35bbf6cb6dfba04e88b09d96651e650, type: 2}
   m_BuildHeightMesh: 0
@@ -1974,6 +1974,11 @@ PrefabInstance:
       propertyPath: m_BreakTorque
       value: 100000
       objectReference: {fileID: 0}
+    - target: {fileID: 1141069671771186382, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3267312110700495651, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: movePositionTransform
@@ -2023,6 +2028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DrZombie 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272550596712180464, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7272550596712180464, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
