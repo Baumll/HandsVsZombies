@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,7 +25,7 @@ public class SchredderZoneScript : MonoBehaviour
         if (other.gameObject.CompareTag("Zombie"))
         {
             Debug.Log("Nom Nom Nom");
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             OnSchredder.Invoke();
         }
     }

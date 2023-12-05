@@ -29,6 +29,10 @@ public class ZombieLimbsScript : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        
+    }
 
     public void disableLimb()
     {

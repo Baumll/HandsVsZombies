@@ -8,10 +8,12 @@ public class SchredderScript : MonoBehaviour
 
     //Die Liste von Objeten die blutiger werden sollen.
     [SerializeField] private MeshRenderer[] bloodyObjectList;
-    [SerializeField] private ParticleSystem bloodParticelSystem;
+    [SerializeField] private ParticleSystem[] bloodParticelSystem;
     [SerializeField] private SchredderZoneScript schreddeerZone;
 
     [SerializeField] private bool isSchreddering = false;
+    [SerializeField] private float schredderTime = 1f;
+    [SerializeField] private float deltaSchredderTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +26,25 @@ public class SchredderScript : MonoBehaviour
     {
         if (isSchreddering)
         {
-            addBloodLevel(0.1f*Time.deltaTime);
-            if (bloodParticelSystem)
+            addBloodLevel(.5f*Time.deltaTime);
+            foreach (var particleSystem in bloodParticelSystem)
             {
-                bloodParticelSystem.Play();
+                particleSystem.Play();
+            }
+            deltaSchredderTime += Time.deltaTime;
+            if (deltaSchredderTime >= schredderTime)
+            {
+                isSchreddering = !isSchreddering;
+                deltaSchredderTime = 0f;
             }
         }
         else
         {
-            bloodParticelSystem.Stop();
+            addBloodLevel(-.05f*Time.deltaTime);
+            foreach (var particleSystem in bloodParticelSystem)
+            {
+                particleSystem.Stop();
+            }
         }
     }
 
