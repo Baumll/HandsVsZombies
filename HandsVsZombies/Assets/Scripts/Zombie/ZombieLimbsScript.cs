@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieLimbsScript : MonoBehaviour
+public class ZombieLimbsScript : RenderRefernce
 {
 
-    public GameObject[] renderer;
     public bool isLeg;
 
     // Start is called before the first frame update
@@ -44,9 +43,9 @@ public class ZombieLimbsScript : MonoBehaviour
         //    joint.disableLimb();
         //}
 
-        foreach (var limb in renderer)
+        foreach (var limb in Renderer)
         {
-            limb.SetActive(false);
+            limb.gameObject.SetActive(false);
         }
         gameObject.SetActive(false);
     }

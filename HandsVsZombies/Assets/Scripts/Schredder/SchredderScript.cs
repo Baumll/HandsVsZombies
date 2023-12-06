@@ -27,30 +27,35 @@ public class SchredderScript : MonoBehaviour
         if (isSchreddering)
         {
             addBloodLevel(.5f*Time.deltaTime);
-            foreach (var particleSystem in bloodParticelSystem)
-            {
-                particleSystem.Play();
-            }
             deltaSchredderTime += Time.deltaTime;
             if (deltaSchredderTime >= schredderTime)
             {
-                isSchreddering = !isSchreddering;
+                disableSchreddering();
                 deltaSchredderTime = 0f;
             }
         }
         else
         {
             addBloodLevel(-.05f*Time.deltaTime);
-            foreach (var particleSystem in bloodParticelSystem)
-            {
-                particleSystem.Stop();
-            }
         }
     }
 
     public void enableSchreddering()
     {
         isSchreddering=true;
+        foreach (var particleSystem in bloodParticelSystem)
+        {
+            particleSystem.Play();
+        }
+    }
+    
+    public void disableSchreddering()
+    {
+        isSchreddering=false;
+        foreach (var particleSystem in bloodParticelSystem)
+        {
+            particleSystem.Stop();
+        }
     }
     public void setBloodLevel(float level){
         foreach(var bloody in bloodyObjectList)
