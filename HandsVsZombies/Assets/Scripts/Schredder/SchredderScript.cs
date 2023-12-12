@@ -13,7 +13,7 @@ public class SchredderScript : MonoBehaviour
 
     [SerializeField] private bool isSchreddering = false;
     [SerializeField] private float schredderTime = 1f;
-    [SerializeField] private float deltaSchredderTime = 0f;
+    private float deltaSchredderTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +42,7 @@ public class SchredderScript : MonoBehaviour
 
     public void enableSchreddering()
     {
+        Debug.Log("Schredder An");
         isSchreddering=true;
         foreach (var particleSystem in bloodParticelSystem)
         {
