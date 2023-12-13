@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VRSpawnScript : MonoBehaviour
 {
     public GameObject vRPlaySpace;
     public GameObject Camera;
+
+    [SerializeField] SceneTransition sceneTransition;
 
     public bool reset;
 
@@ -15,7 +18,6 @@ public class VRSpawnScript : MonoBehaviour
         reset = false;
         Reset();
     }
-
 
     // Start is called before the first frame update
     private void Start()
@@ -39,9 +41,18 @@ public class VRSpawnScript : MonoBehaviour
         Debug.Log("Reset Camera");
         Reset();
     }
-    // Update is called once per frame
-    void Update()
+
+    public void ResetGameScene()
     {
-        
+        sceneTransition.CloseTransition();
+        //Lade Neue Scene
+        SceneManager.UnloadSceneAsync("GameScene");
+        SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
     }
+
+    public void StartTransitionOpen()
+    {
+
+    }
+
 }

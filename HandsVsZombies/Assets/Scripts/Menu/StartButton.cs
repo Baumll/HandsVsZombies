@@ -35,7 +35,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
     {
         //Lade Neue Scene
         SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);  
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)

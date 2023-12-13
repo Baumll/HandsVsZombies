@@ -7,18 +7,6 @@ public class ZombieLimbsScript : RenderRefernce
 
     public bool isLeg;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnJointBreak(float breakForce)
     {
         disableLimb();
