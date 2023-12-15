@@ -352,7 +352,7 @@ MonoBehaviour:
   - {fileID: 6354689067225959708}
   - {fileID: -3503688638428345003}
   m_renderMode: 1
-  m_depthSubmissionMode: 0
+  m_depthSubmissionMode: 1
   m_symmetricProjection: 0
 --- !u!114 &-2834203556594583098
 MonoBehaviour:
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79c911b38743a649b1c1eddb5097202, type: 3}
   m_Name: HandTrackingFeaturePlugin Standalone
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Hand Tracking
   version: 1.9.0
   featureIdInternal: com.microsoft.openxr.feature.handtracking

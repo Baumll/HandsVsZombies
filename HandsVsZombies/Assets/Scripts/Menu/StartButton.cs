@@ -27,6 +27,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
         OnStartbutton.Invoke();
+        GameManager.instance.StartGame();
         gameObject.SetActive(false);
     }
 

@@ -31,6 +31,7 @@ public class VRSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        StartCoroutine(waiter());
         material = sceneTransition.GetComponent<Renderer>(). material;
     }
 
@@ -48,7 +49,8 @@ public class VRSpawnScript : MonoBehaviour
         else
         {
             material.SetFloat("_Radius", (1 - deltaTransitionTime / transitionTime ) * maxRange);
-            if (deltaTransitionTime < 0)
+            //If Lens is Closed restart Game
+            if (deltaTransitionTime <= 0)
             {
                 SceneManager.UnloadScene("GameScene");
                 SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
@@ -87,7 +89,7 @@ public class VRSpawnScript : MonoBehaviour
 
     IEnumerator waiter()
     {
-        //Wait for 4 seconds
+        //Wait for 2 seconds
         yield return new WaitForSeconds(2);
         Debug.Log("Reset Camera");
         ResetCamera();
@@ -97,7 +99,6 @@ public class VRSpawnScript : MonoBehaviour
     {
         print("[VR Spawn Point] Reset Scene");
         CloseTransition();
-        //Lade Neue Scene
     }
 
 }

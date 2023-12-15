@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
@@ -293,7 +293,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 133013083}
+      objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -302,12 +302,12 @@ PrefabInstance:
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetGameScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VRSpawnScript, Assembly-CSharp
+      value: ZombieWaveHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9acc7968244a8886f3af591305bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeProfile: {fileID: 11400000, guid: c0002cbfed471ac4ca6b492a81e22cc0, type: 2}
+  activeProfile: {fileID: 11400000, guid: a9bb953f0094f644091291b376e8d6c8, type: 2}
 --- !u!4 &1387848085
 Transform:
   m_ObjectHideFlags: 0
