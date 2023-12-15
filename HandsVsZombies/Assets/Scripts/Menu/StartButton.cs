@@ -26,7 +26,8 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
+        OnStartbutton.Invoke();
+        gameObject.SetActive(false);
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -37,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
     public void OnPointerUp(MixedRealityPointerEventData eventData)
     {
         //Lade Neue Scene
-        OnStartbutton.Invoke();
+        //OnStartbutton.Invoke();
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)

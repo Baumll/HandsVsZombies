@@ -202,8 +202,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vRPlaySpace: {fileID: 31655762}
   Camera: {fileID: 781122537}
-  sceneTransition: {fileID: 0}
+  sceneTransition: {fileID: 1137105145}
   reset: 0
+  transitionTime: 1
+  open: 1
 --- !u!1001 &507860010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,6 +214,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.36180678
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08710163
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009535618
+      objectReference: {fileID: 0}
     - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1969
+      value: 0.432
       objectReference: {fileID: 0}
     - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
@@ -539,8 +556,8 @@ Transform:
   m_GameObject: {fileID: 1137105145}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.12}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 781122538}
@@ -624,15 +641,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137105145}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 254499e449ec8514da4105577b48e520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 1
-  open: 1
-  sceneTowatch:
-    m_Handle: 0
 --- !u!1 &1387848083
 GameObject:
   m_ObjectHideFlags: 0
