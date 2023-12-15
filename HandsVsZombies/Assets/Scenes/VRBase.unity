@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.028089058, g: 0.030849826, b: 0.035293728, a: 1}
+  m_IndirectSpecularColor: {r: 0.023834798, g: 0.026177572, b: 0.029949747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 31655762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 466.55676, y: 122.10637, z: -4.3279934}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -204,6 +204,113 @@ MonoBehaviour:
   Camera: {fileID: 781122537}
   sceneTransition: {fileID: 0}
   reset: 0
+--- !u!1001 &507860010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1969
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 133013083}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VRSpawnScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586643564299386359, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_Name
+      value: StartButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1049761220925961358, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 90b05dd0b2ddcb54b924c7abcbf53618, type: 3}
 --- !u!1 &781122537
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +342,7 @@ Transform:
   m_GameObject: {fileID: 781122537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -466.55676, y: -122.10637, z: 4.3279934}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -432,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 1137105145}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.145}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -625,3 +732,4 @@ SceneRoots:
   - {fileID: 1387848085}
   - {fileID: 31655763}
   - {fileID: 1477521951}
+  - {fileID: 507860010}

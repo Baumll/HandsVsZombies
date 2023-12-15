@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,7 @@ public class VRSpawnScript : MonoBehaviour
     public void OnValidate()
     {
         reset = false;
-        Reset();
+        ResetCamera();
     }
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class VRSpawnScript : MonoBehaviour
         StartCoroutine(waiter());
     }
     
-    private void Reset()
+    private void ResetCamera()
     {
         Vector3 world = Camera.transform.localPosition;
         
@@ -39,7 +40,7 @@ public class VRSpawnScript : MonoBehaviour
         //Wait for 4 seconds
         yield return new WaitForSeconds(2);
         Debug.Log("Reset Camera");
-        Reset();
+        ResetCamera();
     }
 
     public void ResetGameScene()
