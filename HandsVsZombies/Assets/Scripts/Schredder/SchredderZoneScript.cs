@@ -23,6 +23,7 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
                     renderer.gameObject.SetActive(false);
                 }*/
                 other.transform.root.gameObject.SetActive(false);
+                GameManager.instance.AddScore(1);
                 OnSchredder.Invoke();
             }
         }

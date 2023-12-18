@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance { get; private set; }
-    
+
     [SerializeField] private float zombiesPerWave = 5f;
 
     [Tooltip("The next Wave is X times more Zombies ")]
@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour
     private float waveTime = 0;
     private bool isPause = false;
     private GameObject[] spawnerList;
-    private bool gameIsActive = false;
+    public bool gameIsActive = false;
+    public bool gameIsLost = false;
+    [SerializeField] private float score;
 
     // Start is called before the first frame update
     void Awake()
@@ -95,5 +97,27 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         gameIsActive = false;
+    }
+
+    //You lose the Game
+    public void GameLost()
+    {
+        PauseGame();
+        gameIsLost = true;
+    }
+
+    public void AddScore(float amount)
+    {
+        score += amount;
+    }
+
+    public void SetScore(float newScore)
+    {
+        score += newScore;
+    }
+
+    public float GetScore()
+    {
+        return score;
     }
 }
