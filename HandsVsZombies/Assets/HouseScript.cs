@@ -23,7 +23,6 @@ public class HouseScript : MonoBehaviour
             if (other.gameObject.CompareTag("Zombie"))
             {
                 GameManager.instance.GameLost();
-                GameManager.instance.Score = 6;
             }
         }
     }
