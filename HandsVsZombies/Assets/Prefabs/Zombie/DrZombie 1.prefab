@@ -2884,7 +2884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4372133225178977945
@@ -4126,7 +4129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &9149034311022047416
@@ -4470,9 +4476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c736920c489c34196f35d5c46a1fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  movePositionTransform: {fileID: 0}
-  crawl: 0
+  _standUpStateName: Stand Up
+  _standUpClipName: Stand Up
+  _timeToResetBones: 0
+  MovePositionTransform: {fileID: 0}
 --- !u!1 &7369719256712492117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,7 +5106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8053146396722398192
@@ -5192,7 +5202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8062556243789656910
@@ -5737,7 +5750,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5798,12 +5811,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3267312110700495651}
         m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
-        m_MethodName: EnanbleRagdoll
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6001,7 +6029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGrabbt:
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &9076905430331188795

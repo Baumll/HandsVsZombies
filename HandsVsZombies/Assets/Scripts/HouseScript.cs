@@ -22,6 +22,7 @@ public class HouseScript : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Zombie"))
             {
+                Debug.Log("[House] Zombies Haben das Haus erreicht");
                 GameManager.instance.GameLost();
             }
         }

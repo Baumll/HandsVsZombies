@@ -6,8 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class VRSpawnScript : MonoBehaviour
+public class GlobalManager : MonoBehaviour
 {
+    public static GlobalManager instance { get; private set; }
+
     public GameObject vRPlaySpace;
     public GameObject Camera;
 
@@ -22,17 +24,31 @@ public class VRSpawnScript : MonoBehaviour
     private Material material;
     private float maxRange = 1.2f;
 
+
     public void OnValidate()
     {
         reset = false;
         ResetCamera();
     }
 
+    void Awake()
+    {
+        //Ensure there is only one instance
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
         StartCoroutine(waiter());
-        material = sceneTransition.GetComponent<Renderer>(). material;
+        material = sceneTransition.GetComponent<Renderer>().material;
     }
 
     private void Update()

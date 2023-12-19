@@ -1,199 +1,242 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class ZombieScript : MonoBehaviour
 {
-    public enum ZombieState
+    private class BoneTransform
+    {
+        public Vector3 Position { get; set; }
+
+        public Quaternion Rotation { get; set; }
+    }
+
+    private enum ZombieState
     {
         Walking,
         Ragdoll,
-        Crawling
-    }
-    //For ragdoll
-    private Rigidbody[] ragdollRigidbodyList;
-    private GrabAbleItem[] grabAbleItemList;
-    private CharacterJoint[] characterJointyList;
-    private List<GameObject> characterJointGameobjectList;
-    public ZombieState currentState = ZombieState.Walking;
-
-    [SerializeField] private Transform movePositionTransform;
-
-    private NavMeshAgent navMeshAgent;
-    private Animator animator;
-    //private CharacterController characterController;
-
-    private Vector2 velocity;
-    private Vector2 smoothDeltaPosition;
-
-    public Transform MovePositionTransform { get => movePositionTransform; set => movePositionTransform = value; }
-
-    //LimbRenderer
-    public bool crawl;
-
-    private void Awake()
-    {
-        ragdollRigidbodyList = GetComponentsInChildren<Rigidbody>();
-        characterJointyList = GetComponentsInChildren<CharacterJoint>();
-        grabAbleItemList = GetComponentsInChildren<GrabAbleItem>();
-
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = navMeshAgent.GetComponent<Animator>();
-        //characterController = GetComponent<CharacterController>();
-
-        animator.applyRootMotion = true;
-        navMeshAgent.updatePosition = false;
-        navMeshAgent.updateRotation = true;
+        StandingUp,
+        ResettingBones
     }
 
-    private void OnAnimatorMove()
+    [SerializeField]
+    private string _standUpStateName;
+
+    [SerializeField]
+    private string _standUpClipName;
+
+    [SerializeField]
+    private float _timeToResetBones;
+
+    private Rigidbody[] _ragdollRigidbodies;
+    private ZombieState _currentState = ZombieState.Walking;
+    private Animator _animator;
+    private float _timeToWakeUp;
+    private Transform _hipsBone;
+
+    private BoneTransform[] _standUpBoneTransforms;
+    private BoneTransform[] _ragdollBoneTransforms;
+    private Transform[] _bones;
+    private float _elapsedResetBonesTime;
+    private bool canStandUp = true;
+
+    public Transform MovePositionTransform;
+
+
+    void Awake()
     {
-        Vector3 rootPosition = animator.rootPosition;
-        rootPosition.y = navMeshAgent.nextPosition.y;
-        transform.position = rootPosition;
-        navMeshAgent.nextPosition = rootPosition;
-    }
+        _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        _animator = GetComponent<Animator>();
+        _hipsBone = _animator.GetBoneTransform(HumanBodyBones.Hips);
 
-    private void SynchonizeAnimatorAndAgent()
-    {
-        Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
-        worldDeltaPosition.y = 0;
+        _bones = _hipsBone.GetComponentsInChildren<Transform>();
+        _standUpBoneTransforms = new BoneTransform[_bones.Length];
+        _ragdollBoneTransforms = new BoneTransform[_bones.Length];
 
-        float deltaX = Vector3.Dot(transform.right, worldDeltaPosition);
-        float deltaY = Vector3.Dot(transform.forward, worldDeltaPosition);
-
-        Vector2 deltaPosition = new Vector2(deltaX, deltaY);
-
-        float smooth = Mathf.Min(1, Time.deltaTime / 0.1f);
-        smoothDeltaPosition = Vector2.Lerp(smoothDeltaPosition, deltaPosition, smooth);
-
-        velocity = smoothDeltaPosition / Time.deltaTime;
-
-        if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        for (int boneIndex = 0; boneIndex < _bones.Length; boneIndex++)
         {
-            velocity = Vector2.Lerp(
-                Vector2.zero,
-                velocity,
-                navMeshAgent.remainingDistance / navMeshAgent.stoppingDistance
-                );
+            _standUpBoneTransforms[boneIndex] = new BoneTransform();
+            _ragdollBoneTransforms[boneIndex] = new BoneTransform();
         }
 
-        bool shouldMove = velocity.magnitude > 0.5f
-            && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
+        PopulateAnimationStartBoneTransforms(_standUpClipName, _standUpBoneTransforms);
 
-        animator.SetBool("move", shouldMove);
-        animator.SetFloat("locomotion", velocity.magnitude);
-
-        float deltaMagitude = worldDeltaPosition.magnitude;
-        if(deltaMagitude > navMeshAgent.radius / 2f)
-        {
-            transform.position = Vector3.Lerp(
-                animator.rootPosition,
-                navMeshAgent.nextPosition,
-                smooth);
-        }
+        DisableRagdoll();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        navMeshAgent.enabled = true;
+        EnableRagdoll();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        switch (_currentState)
         {
             case ZombieState.Walking:
-                WalkingBehavior();
+                WalkingBehaviour();
                 break;
             case ZombieState.Ragdoll:
-                RagdollBehavior();
+                RagdollBehaviour();
+                break;
+            case ZombieState.StandingUp:
+                StandingUpBehaviour();
+                break;
+            case ZombieState.ResettingBones:
+                ResettingBonesBehaviour();
                 break;
         }
-
     }
 
-    private void FixedUpdate()
+    public void TriggerRagdoll()
     {
+        EnableRagdoll();
+
+        _currentState = ZombieState.Ragdoll;
+        _timeToWakeUp = Random.Range(2, 3);
     }
 
-    public void DisableRagdoll()
+    private void DisableRagdoll()
     {
-        Debug.Log("Stand Up");
-        animator.enabled = true;
-        currentState = ZombieState.Walking; 
-        //characterController.enabled = true;
-        foreach (var rigidtbody in ragdollRigidbodyList)
+        _animator.enabled = true;
+    }
+
+    public void EnableRagdoll()
+    {
+        _animator.enabled = false;
+    }
+
+    public void Grabbed()
+    {
+        canStandUp = false;
+        TriggerRagdoll();
+    }
+
+    public void Released()
+    {
+        canStandUp = true;
+    }
+
+    private void WalkingBehaviour()
+    {
+        //TO DO
+    }
+
+    private void RagdollBehaviour()
+    {
+        if (canStandUp)
         {
-            if (rigidtbody)
+            _timeToWakeUp -= Time.deltaTime;
+
+            if (_timeToWakeUp <= 0)
             {
-                //rigidtbody.isKinematic = true;
+                AlignRotationToHips();
+                AlignPositionToHips();
+
+                PopulateBoneTransforms(_ragdollBoneTransforms);
+
+                _currentState = ZombieState.ResettingBones;
+                _elapsedResetBonesTime = 0;
             }
         }
     }
 
-    public void EnanbleRagdoll()
+    private void StandingUpBehaviour()
     {
-        Debug.Log("Ragdoll");
-        animator.enabled = false;
-        currentState = ZombieState.Ragdoll; 
-        //characterController.enabled = false;
-        foreach (var rigidtbody in ragdollRigidbodyList)
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName(_standUpStateName) == false)
         {
-            if (rigidtbody)
-            {
-                //rigidtbody.isKinematic = false;
-            }
+            _currentState = ZombieState.Walking;
         }
     }
 
-
-    private void WalkingBehavior()
+    private void ResettingBonesBehaviour()
     {
-        if (movePositionTransform && navMeshAgent)
-        {
-            if (navMeshAgent.isActiveAndEnabled)
-            {
-                navMeshAgent.destination = movePositionTransform.position;
-            }
-            if (Vector3.Distance(MovePositionTransform.position, transform.position) < .4f)
-            {
-                animator.SetTrigger("Stop");
-            }
-            else
-            {
-                animator.SetTrigger("Go");
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.PageUp))
-        {
-            EnanbleRagdoll();
-        }
-    }
+        _elapsedResetBonesTime += Time.deltaTime;
+        float elapsedPercentage = _elapsedResetBonesTime / _timeToResetBones;
 
-    private void RagdollBehavior()
-    {
-        //foreach (var grabber in grabAbleItemList)
-        //{
-        //    if (!grabber.IsGrabbed)
-        //    {
-        //        DisableRagdoll();
-        //    }
-        //}
-
-        if (Input.GetKeyDown(KeyCode.PageUp))
+        for (int boneIndex = 0; boneIndex < _bones.Length; boneIndex++)
         {
+            _bones[boneIndex].localPosition = Vector3.Lerp(
+                _ragdollBoneTransforms[boneIndex].Position,
+                _standUpBoneTransforms[boneIndex].Position,
+                elapsedPercentage);
+
+            _bones[boneIndex].localRotation = Quaternion.Slerp(
+                _ragdollBoneTransforms[boneIndex].Rotation,
+                _standUpBoneTransforms[boneIndex].Rotation,
+                elapsedPercentage);
+        }
+
+        if (elapsedPercentage >= 1)
+        {
+            _currentState = ZombieState.StandingUp;
             DisableRagdoll();
-        }
 
+            _animator.Play(_standUpStateName, -1, 0f);
+        }
     }
 
-    public void LoseLeg()
+    private void AlignRotationToHips()
     {
-        crawl = true;
-        animator.SetTrigger("LoseLeg");
+        Vector3 originalHipsPosition = _hipsBone.position;
+        Quaternion originalHipsRotation = _hipsBone.rotation;
+
+        Vector3 desiredDirection = _hipsBone.up * -1;
+        desiredDirection.y = 0;
+        desiredDirection.Normalize();
+
+        Quaternion fromToRotation = Quaternion.FromToRotation(transform.forward, desiredDirection);
+        transform.rotation *= fromToRotation;
+
+        _hipsBone.position = originalHipsPosition;
+        _hipsBone.rotation = originalHipsRotation;
+    }
+
+    private void AlignPositionToHips()
+    {
+        Debug.Log("[Zombie] AlignPositionToHips");
+        Vector3 originalHipsPosition = _hipsBone.position;
+        transform.position = _hipsBone.position;
+
+        /*
+        Vector3 positionOffset = _standUpBoneTransforms[0].Position;
+        positionOffset.y = 0;
+        positionOffset = transform.rotation * positionOffset;
+        transform.position -= positionOffset;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
+        {
+            transform.position = new Vector3(transform.position.x, hitInfo.point.y, transform.position.z);
+        }
+
+        _hipsBone.position = originalHipsPosition;
+        */
+    }
+
+    private void PopulateBoneTransforms(BoneTransform[] boneTransforms)
+    {
+        for (int boneIndex = 0; boneIndex < _bones.Length; boneIndex++)
+        {
+            boneTransforms[boneIndex].Position = _bones[boneIndex].localPosition;
+            boneTransforms[boneIndex].Rotation = _bones[boneIndex].localRotation;
+        }
+    }
+
+    private void PopulateAnimationStartBoneTransforms(string clipName, BoneTransform[] boneTransforms)
+    {
+        Vector3 positionBeforeSampling = transform.position;
+        Quaternion rotationBeforeSampling = transform.rotation;
+
+        foreach (AnimationClip clip in _animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName)
+            {
+                clip.SampleAnimation(gameObject, 0);
+                PopulateBoneTransforms(_standUpBoneTransforms);
+                break;
+            }
+        }
+
+        transform.position = positionBeforeSampling;
+        transform.rotation = rotationBeforeSampling;
     }
 }

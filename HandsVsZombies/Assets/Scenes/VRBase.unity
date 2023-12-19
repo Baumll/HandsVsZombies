@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 133013082}
   - component: {fileID: 133013083}
   m_Layer: 0
-  m_Name: VRSpawnPoint
+  m_Name: GlobalManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,21 +350,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.36180678
-      objectReference: {fileID: 0}
-    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08710163
-      objectReference: {fileID: 0}
-    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.009535618
-      objectReference: {fileID: 0}
-    - target: {fileID: 681690052903454561, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -413,10 +398,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1020570988395853454, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
@@ -427,7 +417,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 133013083}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -436,12 +426,12 @@ PrefabInstance:
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ResetGameScene
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
       propertyPath: OnStartbutton.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ZombieWaveHandler, Assembly-CSharp
+      value: VRSpawnScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6170446607801834076, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
         type: 3}
@@ -452,6 +442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586643564299386359, guid: 90b05dd0b2ddcb54b924c7abcbf53618,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

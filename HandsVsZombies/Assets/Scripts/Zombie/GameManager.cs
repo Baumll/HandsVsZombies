@@ -20,15 +20,16 @@ public class GameManager : MonoBehaviour
     private int wave = 1;
     private int zombiesSpawntThisWave = 0;
     private float waveTime = 0;
-    private bool isPause = false;
-    private GameObject[] spawnerList;
     public bool gameIsActive = false;
     public bool gameIsLost = false;
+    private bool isPause = false;
+    private GameObject[] spawnerList;
     [SerializeField] private float score;
 
     // Start is called before the first frame update
     void Awake()
     {
+        //Ensure there is only one instance
         if (instance != null && instance != this) 
         { 
             Destroy(this); 

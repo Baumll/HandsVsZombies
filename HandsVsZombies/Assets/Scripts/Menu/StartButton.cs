@@ -4,31 +4,53 @@ using UnityEngine;
 using Microsoft.MixedReality.Toolkit.Input;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 {
-    [SerializeField] private Scene gameScene;
-
     public UnityEvent OnStartbutton;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private MeshRenderer meshRenderer;
+    private BoxCollider boxCollider;
+    private TextMeshPro textMeshPro;
+
+    private void Start()
     {
-        
+        meshRenderer = GetComponent<MeshRenderer>();
+        boxCollider = GetComponent<BoxCollider>();
+        textMeshPro = GetComponentInChildren<TextMeshPro>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
+        if (GameManager.instance.gameIsLost)
+        {
+            meshRenderer.enabled = true;
+            boxCollider.enabled = true;
+            textMeshPro.enabled = true;
+            textMeshPro.text = "Reset";
 
+        }
+        else
+        {
+            if(textMeshPro.enabled)
+            {
+                textMeshPro.text = "Start";
+            }
+        }
+    }
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        OnStartbutton.Invoke();
+       
         GameManager.instance.StartGame();
-        gameObject.SetActive(false);
+        meshRenderer.enabled = false;
+        boxCollider.enabled = false;
+        textMeshPro.enabled = false;
+        if (GameManager.instance.gameIsLost)
+        {
+            OnStartbutton.Invoke();
+        }
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
