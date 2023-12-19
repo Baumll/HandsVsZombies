@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 public class ZombieAudio : MonoBehaviour
 {
     private int lastInt = 0;
-    private float randomDelay = 10;
+    private int randomDelay = 10;
+    private int randomIntSound;
 
     private AudioSource activeAudioSource;
     private bool isRunning = true;
@@ -32,62 +33,60 @@ public class ZombieAudio : MonoBehaviour
     void Update()
     {
         SoundSelection();
-        randomDelay = Random.Range(5, 10);
+        randomDelay = Random.Range(10, 20);
+        Debug.Log(randomDelay);
 
     }
 
     private void SoundSelection()
     {
-        int randomIntSound = Random.Range(0, 100);
+        randomIntSound = Random.Range(0, 100);
 
-        if (randomIntSound < 3)
+        if (randomIntSound <= 1)
             activeAudioSource = minecraftSource;
-        
-        if (randomIntSound >= 3 && randomIntSound <= 10)
-            activeAudioSource = minecraftSource;
-        
-        if (randomIntSound >10 || randomIntSound <= 20)
+        else if (randomIntSound <= 12)
             activeAudioSource = source1;
-        
-        if (randomIntSound >20 || randomIntSound <= 30)
+        else if (randomIntSound <= 23)
             activeAudioSource = source2;
-        
-        if (randomIntSound >30 || randomIntSound <= 40)
+        else if (randomIntSound <= 34)
             activeAudioSource = source3;
-        
-        if (randomIntSound >40 || randomIntSound <= 50)
+        else if (randomIntSound <= 45)
             activeAudioSource = source4;
-        
-        if (randomIntSound >50 || randomIntSound <= 60)
+        else if (randomIntSound <= 56)
             activeAudioSource = source5;
-        
-        if (randomIntSound >60 || randomIntSound <= 70)
+        else if (randomIntSound <= 67)
             activeAudioSource = source6;
-        
-        if (randomIntSound >70 || randomIntSound <= 80)
+        else if (randomIntSound <= 78)
             activeAudioSource = source7;
-        
-        if (randomIntSound >80 || randomIntSound <= 90)
+        else if (randomIntSound <= 89)
             activeAudioSource = source8;
-        
-        if (randomIntSound >90 || randomIntSound <= 100)
+        else if (randomIntSound <= 100)
             activeAudioSource = source9;
-        
     }
+
 
     private void OnDestroy()
     {
         isRunning = false;
     }
+    
 
     IEnumerator ZombieSounds()
     {
-        while (isRunning == true)
+        while (isRunning)
         {
-            Debug.Log("Coroutine is running");
-            yield return new WaitForSeconds(randomDelay);
-            activeAudioSource.Play();
-        }
+            SoundSelection();
 
+            if (!activeAudioSource.isPlaying)
+            {
+                activeAudioSource.Play();
+                yield return new WaitForSeconds(randomDelay);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
     }
+
 }

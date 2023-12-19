@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class ShredderAudio : MonoBehaviour
 {
 
     private SchredderScript schredderScript;
+
+    [SerializeField] private AudioSource schredderSound;
     void Start()
     {
         schredderScript = GetComponentInParent<SchredderScript>();
@@ -13,18 +16,15 @@ public class ShredderAudio : MonoBehaviour
         {
             Debug.LogError("SchredderScript component not found in the parent objects.");
         }
-        
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (schredderScript.isSchreddering == true)
+        if (!schredderSound.isPlaying && schredderScript.isSchreddering == true)
         {
-            
-            
+            schredderSound.Play();
         }
-            
     }
+    
+    
 }
