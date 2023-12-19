@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3955355104854408800}
   - component: {fileID: 1874116025365267423}
+  - component: {fileID: 4313419868712663897}
   m_Layer: 0
   m_Name: ZombieSpawnPoint
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +45,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0120e2d5e1b244b499b07072449c7c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 3508808266449248772, guid: 81f2f50a23c653c439cef03568c54408, type: 3}
+  zombie: {fileID: 7272550596712180464, guid: 5d956882d704d164cab4c09fe27a71b5, type: 3}
   target: {fileID: 0}
-  spawnTime: 2
+--- !u!136 &4313419868712663897
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897283629080954505}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

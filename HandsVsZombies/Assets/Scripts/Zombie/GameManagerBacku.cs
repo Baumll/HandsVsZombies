@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager22 : MonoBehaviour
 {
-    public static GameManager instance { get; private set; }
 
-    [SerializeField] private WaveScriptableObject[] waveList;
-    private WaveScriptableObject activeWave;
-    private int wave = 0;
+    public static GameManager22 instance { get; private set; }
+
+    [SerializeField] private float zombiesPerWave = 5f;
+
+    [Tooltip("The next Wave is X times more Zombies ")]
+    //[SerializeField] private float zombiesPerWaveScaling = 1.5f;
+
+    [SerializeField] private float waveLenght = 10f;
+    [SerializeField] private float waveLenghtScaling = 1.25f;
+    [SerializeField] private float timeBetweenWaves = 10f;
+    [SerializeField] private float timeBetweenWavesScaling = 1.1f;
+    private int wave = 1;
     private int zombiesSpawntThisWave = 0;
-    private float deltaWaveTime = 0;
+    private float waveTime = 0;
     public bool gameIsActive = false;
     public bool gameIsLost = false;
-    private bool isPause = true;
+    private bool isPause = false;
     private GameObject[] spawnerList;
     [SerializeField] private float score;
 
@@ -44,40 +52,32 @@ public class GameManager : MonoBehaviour
     {
         if (gameIsActive)
         {
-            if (wave < waveList.Length)
-            {
-                activeWave = waveList[wave];
-            }
-            else
-            {
-                activeWave = waveList[waveList.Length - 1];
-            }
-            deltaWaveTime += Time.deltaTime;
-            
-            //Wave starts with break
+            waveTime += Time.deltaTime;
             if (isPause)
             {
-                if (deltaWaveTime >= activeWave.PauseLenght)
+                if (waveTime >= waveLenght + (waveLenght * waveLenghtScaling * wave))
                 {
-                    deltaWaveTime = 0;
+                    wave += 1;
+                    waveTime = 0;
                     isPause = !isPause;
                     zombiesSpawntThisWave = 0;
                 }
             }
             else
             {
-                if (deltaWaveTime >= activeWave.WaveLenght)
+                if (waveTime >= timeBetweenWaves + (timeBetweenWaves * timeBetweenWavesScaling * wave))
                 {
-                    deltaWaveTime = 0;
+                    waveTime = 0;
                     isPause = !isPause;
-                    wave += 1;
                 }
                 else
                 {
-                    if (activeWave.ZombieCount - zombiesSpawntThisWave > 0)
+                    if (zombiesPerWave - zombiesSpawntThisWave > 0 && wave > 0)
                     {
-                        float secondPerZombie = activeWave.ZombieCount / activeWave.WaveLenght;
-                        if (Mathf.Floor(secondPerZombie * deltaWaveTime) > zombiesSpawntThisWave)
+                        float secondPerZombie =
+                            (timeBetweenWaves + (timeBetweenWaves * timeBetweenWavesScaling * wave)) /
+                            zombiesSpawntThisWave;
+                        if (Mathf.Floor(secondPerZombie * waveTime) > zombiesSpawntThisWave)
                         {
                             //Spawn Zombie
                             GameObject spawner = spawnerList[Random.Range(0, spawnerList.Length)];

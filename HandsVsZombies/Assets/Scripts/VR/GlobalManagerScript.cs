@@ -76,7 +76,8 @@ public class GlobalManager : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            ResetGameScene();
+            ResetCamera();
+            //ResetGameScene(); 
         }
 
     }
