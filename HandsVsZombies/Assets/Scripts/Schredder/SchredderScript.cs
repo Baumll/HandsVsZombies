@@ -11,7 +11,7 @@ public class SchredderScript : MonoBehaviour
     [SerializeField] private ParticleSystem[] bloodParticelSystem;
     [SerializeField] private SchredderZoneScript schreddeerZone;
 
-    [SerializeField] private bool isSchreddering = false;
+    public bool isSchreddering = false;
     [SerializeField] private float schredderTime = 1f;
     private float deltaSchredderTime = 0f;
 
