@@ -7,7 +7,7 @@ public class DestroyAfterStart : MonoBehaviour
 {
     [SerializeField] private float time = 10;
     private float deltaTime = 0;
-    private bool isActive = true;
+    private bool isActive = false;
     private TextMeshPro textMeshPro;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class DestroyAfterStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deltaTime > Time.deltaTime)
+        if (deltaTime > time)
         {
             if (isActive)
             {
@@ -38,6 +38,11 @@ public class DestroyAfterStart : MonoBehaviour
         if (GameManager.instance.gameIsActive)
         {
             textMeshPro.enabled = true;
+            if (!isActive)
+            {
+                isActive = true;
+                deltaTime = 0;
+            }
             deltaTime += Time.deltaTime;
         }
 
