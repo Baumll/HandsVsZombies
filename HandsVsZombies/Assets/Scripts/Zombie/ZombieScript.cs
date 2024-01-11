@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieScript : MonoBehaviour
 {
@@ -28,9 +29,13 @@ public class ZombieScript : MonoBehaviour
 
     private Rigidbody[] _ragdollRigidbodies;
     private ZombieState _currentState = ZombieState.Walking;
+    private NavMeshAgent navMeshAgent;
     private Animator _animator;
     private float _timeToWakeUp;
     private Transform _hipsBone;
+    
+    private Vector2 velocity;
+    private Vector2 smoothDeltaPosition;
 
     private BoneTransform[] _standUpBoneTransforms;
     private BoneTransform[] _ragdollBoneTransforms;
@@ -45,6 +50,7 @@ public class ZombieScript : MonoBehaviour
     {
         _ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
         _animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         _hipsBone = _animator.GetBoneTransform(HumanBodyBones.Hips);
 
         _bones = _hipsBone.GetComponentsInChildren<Transform>();
@@ -65,7 +71,7 @@ public class ZombieScript : MonoBehaviour
 
     private void Start()
     {
-        EnableRagdoll();
+        navMeshAgent.enabled = true;
     }
 
     // Update is called once per frame
@@ -87,6 +93,46 @@ public class ZombieScript : MonoBehaviour
                 break;
         }
     }
+    
+    private void SynchonizeAnimatorAndAgent()
+    {
+        Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
+        worldDeltaPosition.y = 0;
+
+        float deltaX = Vector3.Dot(transform.right, worldDeltaPosition);
+        float deltaY = Vector3.Dot(transform.forward, worldDeltaPosition);
+
+        Vector2 deltaPosition = new Vector2(deltaX, deltaY);
+
+        float smooth = Mathf.Min(1, Time.deltaTime / 0.1f);
+        smoothDeltaPosition = Vector2.Lerp(smoothDeltaPosition, deltaPosition, smooth);
+
+        velocity = smoothDeltaPosition / Time.deltaTime;
+
+        if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        {
+            velocity = Vector2.Lerp(
+                Vector2.zero,
+                velocity,
+                navMeshAgent.remainingDistance / navMeshAgent.stoppingDistance
+                );
+        }
+
+        bool shouldMove = velocity.magnitude > 0.5f
+            && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
+
+        _animator.SetBool("move", shouldMove);
+        _animator.SetFloat("locomotion", velocity.magnitude);
+
+        float deltaMagitude = worldDeltaPosition.magnitude;
+        if(deltaMagitude > navMeshAgent.radius / 2f)
+        {
+            transform.position = Vector3.Lerp(
+                _animator.rootPosition,
+                navMeshAgent.nextPosition,
+                smooth);
+        }
+    }
 
     public void TriggerRagdoll()
     {
@@ -94,6 +140,7 @@ public class ZombieScript : MonoBehaviour
 
         _currentState = ZombieState.Ragdoll;
         _timeToWakeUp = Random.Range(2, 3);
+        navMeshAgent.enabled = false;
     }
 
     private void DisableRagdoll()
@@ -119,7 +166,12 @@ public class ZombieScript : MonoBehaviour
 
     private void WalkingBehaviour()
     {
-        //TO DO
+        if (navMeshAgent.isActiveAndEnabled)
+        {
+            navMeshAgent.destination = MovePositionTransform.position;
+        }
+        //_hipsBone.position = new Vector3(transform.position.x, transform.position.y - navMeshAgent.baseOffset, transform.position.z);
+        //SynchonizeAnimatorAndAgent();
     }
 
     private void RagdollBehaviour()
@@ -146,6 +198,7 @@ public class ZombieScript : MonoBehaviour
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName(_standUpStateName) == false)
         {
             _currentState = ZombieState.Walking;
+            navMeshAgent.enabled = true;
         }
     }
 

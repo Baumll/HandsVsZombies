@@ -11,7 +11,7 @@ public class SchredderScript : MonoBehaviour
     [SerializeField] private ParticleSystem[] bloodParticelSystem;
     [SerializeField] private SchredderZoneScript schreddeerZone;
 
-    [SerializeField] private bool isSchreddering = false;
+    public bool isSchreddering = false;
     [SerializeField] private float schredderTime = 1f;
     private float deltaSchredderTime = 0f;
 
@@ -26,7 +26,7 @@ public class SchredderScript : MonoBehaviour
     {
         if (isSchreddering)
         {
-            addBloodLevel(.5f*Time.deltaTime);
+            addBloodLevel(2f*Time.deltaTime);
             deltaSchredderTime += Time.deltaTime;
             if (deltaSchredderTime >= schredderTime)
             {
@@ -36,7 +36,7 @@ public class SchredderScript : MonoBehaviour
         }
         else
         {
-            addBloodLevel(-.05f*Time.deltaTime);
+            addBloodLevel(-.2f*Time.deltaTime);
         }
     }
 
@@ -61,7 +61,7 @@ public class SchredderScript : MonoBehaviour
     public void setBloodLevel(float level){
         foreach(var bloody in bloodyObjectList)
         {
-            bloody.material.SetFloat("_Blodymess", level);
+            bloody.GetComponent<MeshRenderer>().material.SetFloat("_Blodymess", level);
         }
 
     }
@@ -71,7 +71,7 @@ public class SchredderScript : MonoBehaviour
     {
         foreach (var bloody in bloodyObjectList)
         {
-            bloody.material.SetFloat("_Blodymess", getBloodLevel() + amount);
+            bloody.GetComponent<MeshRenderer>().material.SetFloat("_Blodymess", getBloodLevel() + amount);
         }
         return getBloodLevel() + amount;
     }
@@ -80,7 +80,7 @@ public class SchredderScript : MonoBehaviour
     {
         if (bloodyObjectList.Length > 0)
         {
-            return bloodyObjectList[0].material.GetFloat("_Blodymess");
+            return bloodyObjectList[0].GetComponent<MeshRenderer>().material.GetFloat("_Blodymess");
         }
         return -1;
     }
