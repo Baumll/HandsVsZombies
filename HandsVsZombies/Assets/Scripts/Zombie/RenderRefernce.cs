@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RenderRefernce : MonoBehaviour
 {
-    [SerializeField] private SkinnedMeshRenderer[] renderer;
+    [SerializeField] private Renderer[] renderer;
+    [SerializeField] private GameObject[] replacementList;
 
-    public SkinnedMeshRenderer[] Renderer => renderer;
+    public Renderer[] Renderer => renderer;
+    public GameObject[] ReplacementList => replacementList;
 }

@@ -59,7 +59,8 @@ public class ZombieScript : MonoBehaviour
 
         PopulateAnimationStartBoneTransforms(_standUpClipName, _standUpBoneTransforms);
 
-        DisableRagdoll();
+        EnableRagdoll();
+        //DisableRagdoll();
     }
 
     private void Start()
