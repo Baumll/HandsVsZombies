@@ -1122,6 +1122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 8086280920948555765}
+  replacementList: []
 --- !u!1 &1383551492394585453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1903,7 @@ MonoBehaviour:
   renderer:
   - {fileID: 2000349785783126719}
   - {fileID: 1581882201939908133}
+  replacementList: []
 --- !u!1 &2966517246132056314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2138,7 @@ MonoBehaviour:
   - {fileID: 7252627322088352220}
   - {fileID: 7938710343711232062}
   - {fileID: 47188053967118013}
+  replacementList: []
   isLeg: 0
 --- !u!1 &3055407692009075531
 GameObject:
@@ -3101,6 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 3997448283304888823}
+  replacementList: []
   isLeg: 0
 --- !u!1 &4618505480441561719
 GameObject:
@@ -3338,6 +3342,7 @@ MonoBehaviour:
   renderer:
   - {fileID: 3769083357946757793}
   - {fileID: 9520796069174078}
+  replacementList: []
   isLeg: 1
 --- !u!1 &4749046156644169009
 GameObject:
@@ -3452,6 +3457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 1581882201939908133}
+  replacementList: []
 --- !u!1 &5462022482582715390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,6 +5071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 2196514965459228627}
+  replacementList: []
 --- !u!1 &6696282082622050486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,7 +5542,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7272550596712180464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 0.2
@@ -6120,6 +6127,7 @@ MonoBehaviour:
   renderer:
   - {fileID: 8671337201237793129}
   - {fileID: 3851929351952159405}
+  replacementList: []
 --- !u!1 &7978727102664175461
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,6 +6555,7 @@ MonoBehaviour:
   - {fileID: 885222888345508892}
   - {fileID: 1187090952989395565}
   - {fileID: 8062556243789656910}
+  replacementList: []
   isLeg: 0
 --- !u!1 &8398796374260769523
 GameObject:
@@ -6628,6 +6637,7 @@ MonoBehaviour:
   - {fileID: 885222888345508892}
   - {fileID: 1187090952989395565}
   - {fileID: 8062556243789656910}
+  replacementList: []
   isLeg: 0
 --- !u!1 &8595235155107149854
 GameObject:
@@ -6776,6 +6786,7 @@ MonoBehaviour:
   renderer:
   - {fileID: 1383551492394585453}
   - {fileID: 74644001851610544}
+  replacementList: []
   isLeg: 1
 --- !u!1 &8695732065873987486
 GameObject:
@@ -7057,6 +7068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 3851929351952159405}
+  replacementList: []
 --- !u!1 &9055489727502998988
 GameObject:
   m_ObjectHideFlags: 0
