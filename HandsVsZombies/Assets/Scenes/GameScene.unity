@@ -1849,6 +1849,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 213.524
       objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.997406
+      objectReference: {fileID: 0}
+    - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.501
+      objectReference: {fileID: 0}
     - target: {fileID: 595653872818886488, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: m_Layer
@@ -1948,6 +1978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022391274443621180, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      propertyPath: zombieTag
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 2296498386018462558, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}

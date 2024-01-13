@@ -34,7 +34,6 @@ public class ZombieAudio : MonoBehaviour
     {
         SoundSelection();
         randomDelay = Random.Range(10, 20);
-        Debug.Log(randomDelay);
 
     }
 
