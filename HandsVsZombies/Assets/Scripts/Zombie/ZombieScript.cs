@@ -27,6 +27,8 @@ public class ZombieScript : MonoBehaviour
     [SerializeField]
     private float _timeToResetBones;
 
+    [SerializeField] private float timeToStandUp = 3.0f;
+
     private Rigidbody[] _ragdollRigidbodies;
     private ZombieState _currentState = ZombieState.Walking;
     private NavMeshAgent navMeshAgent;
@@ -65,7 +67,7 @@ public class ZombieScript : MonoBehaviour
 
         PopulateAnimationStartBoneTransforms(_standUpClipName, _standUpBoneTransforms);
 
-        EnableRagdoll();
+        //EnableRagdoll();
         //DisableRagdoll();
     }
 
@@ -139,7 +141,7 @@ public class ZombieScript : MonoBehaviour
         EnableRagdoll();
 
         _currentState = ZombieState.Ragdoll;
-        _timeToWakeUp = Random.Range(2, 3);
+        _timeToWakeUp = Random.Range(timeToStandUp-1, timeToStandUp+1);
         navMeshAgent.enabled = false;
     }
 

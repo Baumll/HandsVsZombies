@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,13 @@ public class FireBall : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        GameObject newExposion = Instantiate(explosion);
+        Destroy(gameObject);
+    }
+    
+    public void OnTriggerEnter(Collider other)
+    {
+        GameObject newExposion = Instantiate(explosion);
         Destroy(gameObject);
     }
 }

@@ -37,12 +37,12 @@ public class ZombieLimbsScript : RenderRefernce
         }
         foreach(var replacement in ReplacementList)
         {
-
             replacement.gameObject.SetActive(true);
             replacement.transform.position = transform.position;
             replacement.transform.SetParent(null);
         }
 
-        gameObject.SetActive(false);
+        Destroy(transform);
+        //gameObject.SetActive(false);
     }
 }
