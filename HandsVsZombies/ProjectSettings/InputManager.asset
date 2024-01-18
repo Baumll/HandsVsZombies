@@ -486,11 +486,11 @@ InputManager:
     axis: 5
     joyNum: 0
   - serializedVersion: 3
-    m_Name: LeftTrigger
+    m_Name: Controller 1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 10
+    positiveButton: joystick button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -502,11 +502,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: RightTrigger
+    m_Name: Controller 2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 11
+    positiveButton: joystick button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -518,11 +518,11 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_3
+    m_Name: Controller 3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 3
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -534,11 +534,11 @@ InputManager:
     axis: 2
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_4
+    m_Name: Controller 4
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -550,11 +550,11 @@ InputManager:
     axis: 3
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_5
+    m_Name: Controller 5
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 5
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -566,11 +566,11 @@ InputManager:
     axis: 4
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_6
+    m_Name: Controller 6
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -582,11 +582,11 @@ InputManager:
     axis: 5
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_7
+    m_Name: Controller 7
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -598,11 +598,11 @@ InputManager:
     axis: 6
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_8
+    m_Name: Controller 8
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 8
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -614,11 +614,11 @@ InputManager:
     axis: 7
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_9
+    m_Name: Controller 9
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 9
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -630,11 +630,11 @@ InputManager:
     axis: 8
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_10
+    m_Name: Controller 10
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 10
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -646,11 +646,11 @@ InputManager:
     axis: 9
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_11
+    m_Name: Controller 11
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 11
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -662,11 +662,11 @@ InputManager:
     axis: 10
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_12
+    m_Name: Controller 12
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 12
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -678,11 +678,11 @@ InputManager:
     axis: 11
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_13
+    m_Name: TriggerLeft
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 14
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -690,15 +690,15 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 12
     joyNum: 0
   - serializedVersion: 3
-    m_Name: AXIS_14
+    m_Name: TriggerRight
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 15
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -706,7 +706,7 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 13
     joyNum: 0
   - serializedVersion: 3

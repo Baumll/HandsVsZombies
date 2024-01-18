@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieLimbsScript : RenderRefernce
+public class ZombieLimbsScript : MonoBehaviour
 {
+    [SerializeField] private Renderer[] renderer;
+    [SerializeField] private GameObject[] replacementList;
 
+    public Renderer[] Renderer => renderer;
+    public GameObject[] ReplacementList => replacementList;
     public bool isLeg;
 
     void OnJointBreak(float breakForce)
@@ -31,7 +35,7 @@ public class ZombieLimbsScript : RenderRefernce
         //    joint.disableLimb();
         //}
 
-        foreach (var limb in Renderer)
+        foreach (var limb in renderer)
         {
             limb.gameObject.SetActive(false);
         }

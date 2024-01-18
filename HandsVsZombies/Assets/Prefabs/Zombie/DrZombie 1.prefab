@@ -3084,8 +3084,8 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 100000
-  m_BreakTorque: 100000
+  m_BreakForce: 1000
+  m_BreakTorque: 1000
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -3104,7 +3104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer:
   - {fileID: 3997448283304888823}
-  replacementList: []
+  replacementList:
+  - {fileID: 6696282082622050486}
   isLeg: 0
 --- !u!1 &4618505480441561719
 GameObject:
@@ -5572,6 +5573,7 @@ MonoBehaviour:
   _standUpStateName: Stand Up
   _standUpClipName: Stand Up
   _timeToResetBones: 0.5
+  timeToStandUp: 3
   MovePositionTransform: {fileID: 0}
 --- !u!1 &7369719256712492117
 GameObject:

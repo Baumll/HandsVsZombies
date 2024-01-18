@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552aa83632938454bb3ecd07afe2b422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAction: {fileID: -417675426849942638, guid: b55f2852b8b0bfe4e83ef21c4962cb18,
+    type: 3}
   handside: 0
   chaged: 1
   fireBallSpawnPoint: {fileID: 4712016070351469098}

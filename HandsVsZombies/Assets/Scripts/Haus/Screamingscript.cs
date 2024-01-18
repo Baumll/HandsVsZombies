@@ -39,7 +39,7 @@ public class Screamingscript : MonoBehaviour
                 
             }
             
-            Debug.Log("Shortest Distance is:" + closestDistance);
+            //Debug.Log("Shortest Distance is:" + closestDistance);
 
             if (scream != null && closestZombie != null && closestDistance <= screamingDistance)
             {
@@ -60,6 +60,6 @@ public class Screamingscript : MonoBehaviour
             Debug.Log("No zombies in the scene.");
         }
         
-        Debug.Log("Zombies in Scene:" + zombies.Length);
+        //Debug.Log("Zombies in Scene:" + zombies.Length);
     }
 }
