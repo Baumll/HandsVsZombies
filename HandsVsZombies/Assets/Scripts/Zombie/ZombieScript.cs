@@ -73,6 +73,7 @@ public class ZombieScript : MonoBehaviour
 
     private void Start()
     {
+        navMeshAgent.enabled = false;
         navMeshAgent.enabled = true;
     }
 
