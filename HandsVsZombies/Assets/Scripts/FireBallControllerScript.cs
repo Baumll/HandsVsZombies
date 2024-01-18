@@ -26,14 +26,14 @@ public class FireBallControllerScript : MonoBehaviour
         bool firering = false;
         if (handside == Direction.Left)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2") && Input.GetAxis("LeftTrigger") == 0)
             {
                 firering = true;
             }
         }
         else
         {
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire1") && Input.GetAxis("RightTrigger") == 0)
             {
                 firering = true;
             }
