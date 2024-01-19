@@ -1058,6 +1058,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1861234724}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &416700542 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4708782292945039585, guid: 5d956882d704d164cab4c09fe27a71b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788736603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420651189
 GameObject:
   m_ObjectHideFlags: 0
@@ -23434,6 +23440,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1673412126304427756, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043890639183512756, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3267312110700495651, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: timeToStandUp
@@ -23457,13 +23473,23 @@ PrefabInstance:
     - target: {fileID: 4993886118298826749, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: m_BreakForce
-      value: 1000
+      value: Infinity
       objectReference: {fileID: 0}
     - target: {fileID: 4993886118298826749, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: m_BreakTorque
-      value: 1000
+      value: Infinity
       objectReference: {fileID: 0}
+    - target: {fileID: 5494148931999452134, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: limbRenderer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494148931999452134, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: limbRenderer.Array.data[0]
+      value: 
+      objectReference: {fileID: 416700542}
     - target: {fileID: 7272550596712180464, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: m_Name

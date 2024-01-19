@@ -2122,16 +2122,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3053211169366563180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 7252627322088352220}
-  - {fileID: 7938710343711232062}
-  - {fileID: 47188053967118013}
+  limbRenderer: []
   replacementList: []
+  breakForce: 1000
   isLeg: 0
 --- !u!1 &3055407692009075531
 GameObject:
@@ -2962,6 +2960,8 @@ GameObject:
   - component: {fileID: 3158380418171507578}
   - component: {fileID: 4993886118298826749}
   - component: {fileID: 5494148931999452134}
+  - component: {fileID: 5820304065520732583}
+  - component: {fileID: 363258224183515154}
   m_Layer: 0
   m_Name: Base HumanHead
   m_TagString: Untagged
@@ -3077,8 +3077,8 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 1000
-  m_BreakTorque: 1000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -3095,11 +3095,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 3997448283304888823}
+  limbRenderer:
+  - {fileID: 4708782292945039585}
   replacementList:
   - {fileID: 6696282082622050486}
+  breakForce: 500
   isLeg: 0
+--- !u!114 &5820304065520732583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378235842944626422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &363258224183515154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378235842944626422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
 --- !u!1 &4618505480441561719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,15 +3385,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4663159327763266940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 3769083357946757793}
-  - {fileID: 9520796069174078}
+  limbRenderer: []
   replacementList: []
+  breakForce: 1000
   isLeg: 1
 --- !u!1 &4749046156644169009
 GameObject:
@@ -6531,16 +6587,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8367501601824001573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 885222888345508892}
-  - {fileID: 1187090952989395565}
-  - {fileID: 8062556243789656910}
+  limbRenderer: []
   replacementList: []
+  breakForce: 1000
   isLeg: 0
 --- !u!1 &8398796374260769523
 GameObject:
@@ -6582,7 +6636,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6140677022395585541}
-  - component: {fileID: 302217636714599142}
   m_Layer: 0
   m_Name: Base HumanRArmCollarbone
   m_TagString: Untagged
@@ -6606,24 +6659,6 @@ Transform:
   - {fileID: 3713749186800139200}
   m_Father: {fileID: 6146657593720712695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302217636714599142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8515543057755196586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 885222888345508892}
-  - {fileID: 1187090952989395565}
-  - {fileID: 8062556243789656910}
-  replacementList: []
-  isLeg: 0
 --- !u!1 &8595235155107149854
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,15 +6798,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8595235155107149854}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer:
-  - {fileID: 1383551492394585453}
-  - {fileID: 74644001851610544}
+  limbRenderer: []
   replacementList: []
+  breakForce: 1000
   isLeg: 1
 --- !u!1 &8695732065873987486
 GameObject:
@@ -6783,7 +6817,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7149725150401249787}
   - component: {fileID: 2664004210121792192}
-  - component: {fileID: 1141069671771186382}
   - component: {fileID: 6089385834770895701}
   - component: {fileID: 4197966837913404234}
   - component: {fileID: 3650306703967852960}
@@ -6833,29 +6866,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27080226, y: 0.28194922, z: 0.3551271}
   m_Center: {x: -0.13540113, y: 0.0031102449, z: -0.00000014901161}
---- !u!136 &1141069671771186382
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8695732065873987486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.49
-  m_Height: 2.01
-  m_Direction: 0
-  m_Center: {x: 0.06, y: 0, z: 0}
 --- !u!54 &6089385834770895701
 Rigidbody:
   m_ObjectHideFlags: 0
