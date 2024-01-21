@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 782714687}
-  m_IndirectSpecularColor: {r: 0.023834798, g: 0.026177572, b: 0.029949747, a: 1}
+  m_IndirectSpecularColor: {r: 0.02383685, g: 0.026180072, b: 0.02995224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12728,6 +12728,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dac0f0edabbede948bfaa0a6a7416d35, type: 3}
+--- !u!1 &1088231022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5079005515437991771, guid: 5d956882d704d164cab4c09fe27a71b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788736603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1145132192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9089445794973462241, guid: d8026973182f8144cab896426fa1e1e6,
@@ -23480,6 +23486,21 @@ PrefabInstance:
       propertyPath: m_BreakTorque
       value: Infinity
       objectReference: {fileID: 0}
+    - target: {fileID: 5208833544865738347, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208833544865738347, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494148931999452134, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: replacementObject
+      value: 
+      objectReference: {fileID: 1088231022}
     - target: {fileID: 5494148931999452134, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: limbRenderer.Array.size
@@ -23547,7 +23568,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1141069671771186382, guid: 5d956882d704d164cab4c09fe27a71b5, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6696282082622050486, guid: 5d956882d704d164cab4c09fe27a71b5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4378235842944626422, guid: 5d956882d704d164cab4c09fe27a71b5,
@@ -23577,6 +23599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabber: {fileID: 0}
   OnGrabbtUp:
     m_PersistentCalls:
       m_Calls:

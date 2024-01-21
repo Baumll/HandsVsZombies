@@ -6,28 +6,26 @@ using UnityEngine;
 public class ZombieLimbsScript : MonoBehaviour
 {
     [SerializeField] private Renderer[] limbRenderer;
-    [SerializeField] private GameObject[] replacementList;
+    [SerializeField] private GameObject replacementObject;
     private CharacterJoint characterJoint;
     [SerializeField] private float breakForce = 1000f;
 
-    public GameObject[] ReplacementList => replacementList;
     public bool isLeg;
     private bool broken = false;
-    private Transform grabParent = null; //Wenn != null dann ist das das Körperteil in der Hand
-    private Transform oldParent = null;
-    private GrabAbleItem grabAbleItem = null;
+    private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das Körperteil in der Hand
+    private SpherePointer spherePointer;
+
 
     private void Start()
     {
         characterJoint = GetComponent<CharacterJoint>();
         grabAbleItem = GetComponent<GrabAbleItem>();
-        oldParent = transform.parent;
     }
 
     private void Update()
     {
         //Der Joint Kann brechen wenn er auch gegrabt ist
-        if (grabParent != null)
+        if (grabAbleItem.IsGrabbed)
         {
             if (characterJoint.currentForce.magnitude > breakForce)
             {
@@ -57,7 +55,7 @@ public class ZombieLimbsScript : MonoBehaviour
 
     public void DisableLimb()
     {
-        if (!broken)
+        if (!broken && spherePointer != null)
         {
             broken = true;
             Debug.Log("break!");
@@ -68,27 +66,21 @@ public class ZombieLimbsScript : MonoBehaviour
                 limb.gameObject.SetActive(false);
             }
 
-            foreach (var replacement in ReplacementList)
-            {
-                replacement.gameObject.SetActive(true);
-                replacement.transform.SetParent(grabParent.transform);
-                if(grabParent != null )
-                {
-                    grab
-                }
-                //replacement.transform.position = transform.position;
-            }
-            transform.parent = oldParent;
+            replacementObject.gameObject.SetActive(true);
+            replacementObject.transform.SetParent(null);
+            replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
+
+            grabAbleItem.FreeItem();
         }
     }
 
-    public void Grabbed(Transform parent)
+    public void Grabbed(SpherePointer pointer)
     {
-        grabParent = parent;
+        spherePointer = pointer;
     }
 
     public void Released()
     {
-        grabParent = null;
+        spherePointer = null;
     }
 }

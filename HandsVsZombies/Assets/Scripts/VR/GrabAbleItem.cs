@@ -12,7 +12,7 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
     private Transform parent;
     private Vector3 ? lastPosition;
     private Vector3 velocity;
-    private SpherePointer grabber;
+    public SpherePointer grabber;
     public UnityEvent OnGrabbtUp;
     public UnityEvent OnGrabbtDown;
     private bool isGrabbed = false;
@@ -50,21 +50,7 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
             return;
         }
 
-        grabber = spherePointer;
-        body.isKinematic = true;
-        transform.parent = spherePointer.transform;
-
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-
-        isGrabbed = true;
-        OnGrabbtDown.Invoke();
-        Debug.Log("Grabb: " + spherePointer.PointerName);
-
-        if (zombieLimbsScript != null)
-        {
-            zombieLimbsScript.Grabbed(spherePointer.transform, this);
-        }
+        GrabItem(spherePointer);
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -85,9 +71,36 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
         FreeItem();
     }
 
+    public void GrabItem(SpherePointer spherePointer)
+    {
+        if (body == null)
+        {
+            body = GetComponent<Rigidbody>();
+        }
+        grabber = spherePointer;
+        body.isKinematic = true;
+        transform.parent = spherePointer.transform;
+
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+
+        isGrabbed = true;
+        OnGrabbtDown.Invoke();
+        Debug.Log("Grabb: " + spherePointer.PointerName);
+
+        if (zombieLimbsScript != null)
+        {
+            zombieLimbsScript.Grabbed(spherePointer);
+        }
+    }
+
     //Befreie das Item von der Hand
     public void FreeItem()
     {
+        if(body == null)
+        {
+            body = GetComponent<Rigidbody>();
+        }
         grabber = null;
         isGrabbed = false;
         transform.parent = parent;
@@ -95,6 +108,11 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
         body.AddForce(velocity, ForceMode.VelocityChange);
         lastPosition = null;
         OnGrabbtUp.Invoke();
+
+        if (zombieLimbsScript != null)
+        {
+            zombieLimbsScript.Released();
+        }
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
