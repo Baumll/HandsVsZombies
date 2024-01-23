@@ -1996,6 +1996,8 @@ GameObject:
   - component: {fileID: 7104975154781478061}
   - component: {fileID: 657436156989222427}
   - component: {fileID: 4209122112211067158}
+  - component: {fileID: 5776558730224733003}
+  - component: {fileID: 8255751964595386173}
   m_Layer: 0
   m_Name: Base HumanLArmUpperarm
   m_TagString: Untagged
@@ -2122,15 +2124,75 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3053211169366563180}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbRenderer: []
+  limbRenderer:
+  - {fileID: 3851929351952159405}
+  - {fileID: 8671337201237793129}
+  - {fileID: 5942432440419254740}
   replacementObject: {fileID: 0}
   breakForce: 1000
   isLeg: 0
+--- !u!114 &5776558730224733003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053211169366563180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabber: {fileID: 0}
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8255751964595386173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053211169366563180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
 --- !u!1 &3055407692009075531
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3322,8 @@ GameObject:
   - component: {fileID: 1504585024494960340}
   - component: {fileID: 5393508284827356770}
   - component: {fileID: 2043890639183512756}
+  - component: {fileID: 4933256636601137221}
+  - component: {fileID: 1173202772980528994}
   m_Layer: 0
   m_Name: Base HumanLLegThigh
   m_TagString: Zombie
@@ -3386,15 +3450,74 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4663159327763266940}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbRenderer: []
+  limbRenderer:
+  - {fileID: 1722191073553608255}
+  - {fileID: 8086280920948555765}
   replacementObject: {fileID: 0}
   breakForce: 1000
   isLeg: 1
+--- !u!114 &4933256636601137221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663159327763266940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabber: {fileID: 0}
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1173202772980528994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663159327763266940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
 --- !u!1 &4749046156644169009
 GameObject:
   m_ObjectHideFlags: 0
@@ -6295,6 +6418,8 @@ GameObject:
   - component: {fileID: 1908349811334199998}
   - component: {fileID: 890001120863020485}
   - component: {fileID: 1590357921034131884}
+  - component: {fileID: 6146248243906869065}
+  - component: {fileID: 9221819005366997592}
   m_Layer: 0
   m_Name: Base HumanRArmUpperarm
   m_TagString: Untagged
@@ -6421,15 +6546,75 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8367501601824001573}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbRenderer: []
+  limbRenderer:
+  - {fileID: 1272596237802717233}
+  - {fileID: 2000349785783126719}
+  - {fileID: 1581882201939908133}
   replacementObject: {fileID: 0}
-  breakForce: 1000
+  breakForce: 250
   isLeg: 0
+--- !u!114 &6146248243906869065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367501601824001573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabber: {fileID: 0}
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9221819005366997592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367501601824001573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
 --- !u!1 &8398796374260769523
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6691,8 @@ GameObject:
   - component: {fileID: 7772021159622532731}
   - component: {fileID: 685917601439122549}
   - component: {fileID: 1673412126304427756}
+  - component: {fileID: 1362211229544329003}
+  - component: {fileID: 617630246743094615}
   m_Layer: 0
   m_Name: Base HumanRThigh
   m_TagString: Zombie
@@ -6632,15 +6819,50 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8595235155107149854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df54d4cb9522c1458adb1fcc117d1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limbRenderer: []
+  limbRenderer:
+  - {fileID: 5282427459329933544}
+  - {fileID: 2196514965459228627}
   replacementObject: {fileID: 0}
   breakForce: 1000
   isLeg: 1
+--- !u!114 &1362211229544329003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595235155107149854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
+--- !u!114 &617630246743094615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595235155107149854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f3951d01177e24197a3c199465fcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabber: {fileID: 0}
+  OnGrabbtUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabbtDown:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8695732065873987486
 GameObject:
   m_ObjectHideFlags: 0

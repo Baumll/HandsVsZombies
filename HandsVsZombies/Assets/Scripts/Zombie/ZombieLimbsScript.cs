@@ -8,11 +8,11 @@ public class ZombieLimbsScript : MonoBehaviour
     [SerializeField] private Renderer[] limbRenderer;
     [SerializeField] private GameObject replacementObject;
     private CharacterJoint characterJoint;
-    [SerializeField] private float breakForce = 1000f;
+    [SerializeField] private float breakForce = 250f;
 
     public bool isLeg;
     private bool broken = false;
-    private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das Körperteil in der Hand
+    private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das Kï¿½rperteil in der Hand
     private SpherePointer spherePointer;
 
 
@@ -66,10 +66,12 @@ public class ZombieLimbsScript : MonoBehaviour
                 limb.gameObject.SetActive(false);
             }
 
-            replacementObject.gameObject.SetActive(true);
-            replacementObject.transform.SetParent(null);
-            replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
-
+            if (replacementObject is not null)
+            {
+                replacementObject.gameObject.SetActive(true);
+                replacementObject.transform.SetParent(null);
+                replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
+            }
             grabAbleItem.FreeItem();
         }
     }

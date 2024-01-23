@@ -12,7 +12,7 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
     private Transform parent;
     private Vector3 ? lastPosition;
     private Vector3 velocity;
-    public SpherePointer grabber;
+    [HideInInspector] public SpherePointer grabber;
     public UnityEvent OnGrabbtUp;
     public UnityEvent OnGrabbtDown;
     private bool isGrabbed = false;
@@ -70,7 +70,8 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
 
         FreeItem();
     }
-
+    
+    //Plaziert das Item in der Hand
     public void GrabItem(SpherePointer spherePointer)
     {
         if (body == null)
