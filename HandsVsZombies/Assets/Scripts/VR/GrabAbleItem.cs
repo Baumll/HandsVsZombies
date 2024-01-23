@@ -55,7 +55,6 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
     }
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)

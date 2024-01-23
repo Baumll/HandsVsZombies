@@ -988,7 +988,6 @@ GameObject:
   - component: {fileID: 4957501797331233677}
   - component: {fileID: 136154909006217710}
   - component: {fileID: 4142686183597819395}
-  - component: {fileID: 6301017921144327114}
   m_Layer: 0
   m_Name: Base HumanLLegCalf
   m_TagString: Untagged
@@ -1108,18 +1107,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6301017921144327114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306564195122427086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac32fc683e5d64242ba7e79c02850c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1383551492394585453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,8 +2098,8 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 100000
-  m_BreakTorque: 100000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -2133,9 +2120,9 @@ MonoBehaviour:
   - {fileID: 3851929351952159405}
   - {fileID: 8671337201237793129}
   - {fileID: 5942432440419254740}
-  replacementObject: {fileID: 0}
-  breakForce: 1000
-  isLeg: 0
+  replacementObject: {fileID: 4274858849498420300}
+  breakForce: 200
+  isCrucial: 0
 --- !u!114 &5776558730224733003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,8 +3148,8 @@ MonoBehaviour:
   limbRenderer:
   - {fileID: 4708782292945039585}
   replacementObject: {fileID: 5079005515437991771}
-  breakForce: 250
-  isLeg: 0
+  breakForce: 200
+  isCrucial: 1
 --- !u!114 &5820304065520732583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3321,9 +3308,9 @@ GameObject:
   - component: {fileID: 774034922436258719}
   - component: {fileID: 1504585024494960340}
   - component: {fileID: 5393508284827356770}
-  - component: {fileID: 2043890639183512756}
-  - component: {fileID: 4933256636601137221}
-  - component: {fileID: 1173202772980528994}
+  - component: {fileID: 6296012260784942098}
+  - component: {fileID: 8440389122104216448}
+  - component: {fileID: 1561196818134599604}
   m_Layer: 0
   m_Name: Base HumanLLegThigh
   m_TagString: Zombie
@@ -3437,13 +3424,13 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 100000
-  m_BreakTorque: 100000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2043890639183512756
+--- !u!114 &6296012260784942098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3456,12 +3443,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbRenderer:
-  - {fileID: 1722191073553608255}
   - {fileID: 8086280920948555765}
-  replacementObject: {fileID: 0}
-  breakForce: 1000
-  isLeg: 1
---- !u!114 &4933256636601137221
+  - {fileID: 1722191073553608255}
+  replacementObject: {fileID: 7978727102664175461}
+  breakForce: 200
+  isCrucial: 1
+--- !u!114 &8440389122104216448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663159327763266940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
+--- !u!114 &1561196818134599604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3504,20 +3505,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1173202772980528994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4663159327763266940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTetherWhenManipulating: 0
-  IsBoundsHandles: 0
 --- !u!1 &4749046156644169009
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,8 +6520,8 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 100000
-  m_BreakTorque: 100000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -6555,9 +6542,9 @@ MonoBehaviour:
   - {fileID: 1272596237802717233}
   - {fileID: 2000349785783126719}
   - {fileID: 1581882201939908133}
-  replacementObject: {fileID: 0}
-  breakForce: 250
-  isLeg: 0
+  replacementObject: {fileID: 9055489727502998988}
+  breakForce: 200
+  isCrucial: 0
 --- !u!114 &6146248243906869065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6690,9 +6677,9 @@ GameObject:
   - component: {fileID: 4898684748907529018}
   - component: {fileID: 7772021159622532731}
   - component: {fileID: 685917601439122549}
-  - component: {fileID: 1673412126304427756}
-  - component: {fileID: 1362211229544329003}
-  - component: {fileID: 617630246743094615}
+  - component: {fileID: 5198442404367577076}
+  - component: {fileID: 7039594396680625704}
+  - component: {fileID: 2066063643131996673}
   m_Layer: 0
   m_Name: Base HumanRThigh
   m_TagString: Zombie
@@ -6806,13 +6793,13 @@ CharacterJoint:
   m_EnableProjection: 0
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
-  m_BreakForce: 100000
-  m_BreakTorque: 100000
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &1673412126304427756
+--- !u!114 &5198442404367577076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6825,12 +6812,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbRenderer:
-  - {fileID: 5282427459329933544}
   - {fileID: 2196514965459228627}
-  replacementObject: {fileID: 0}
-  breakForce: 1000
-  isLeg: 1
---- !u!114 &1362211229544329003
+  - {fileID: 5282427459329933544}
+  replacementObject: {fileID: 8053146396722398192}
+  breakForce: 200
+  isCrucial: 1
+--- !u!114 &7039594396680625704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6844,7 +6831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
---- !u!114 &617630246743094615
+--- !u!114 &2066063643131996673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6859,10 +6846,34 @@ MonoBehaviour:
   grabber: {fileID: 0}
   OnGrabbtUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Released
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGrabbtDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3267312110700495651}
+        m_TargetAssemblyTypeName: ZombieScript, Assembly-CSharp
+        m_MethodName: Grabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8695732065873987486
 GameObject:
   m_ObjectHideFlags: 0
@@ -6878,7 +6889,7 @@ GameObject:
   - component: {fileID: 3650306703967852960}
   m_Layer: 0
   m_Name: Base HumanPelvis
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

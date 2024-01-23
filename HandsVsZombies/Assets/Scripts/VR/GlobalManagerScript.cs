@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
@@ -49,6 +50,12 @@ public class GlobalManager : MonoBehaviour
     {
         StartCoroutine(waiter());
         material = sceneTransition.GetComponent<Renderer>().material;
+        
+        ShellHandRayPointer [] shellHandRayPointers = GameObject.FindObjectsByType<ShellHandRayPointer>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+        foreach (ShellHandRayPointer shellHandRayPointer in shellHandRayPointers)
+        {
+            shellHandRayPointer.gameObject.SetActive(false);
+        }
     }
 
     private void Update()

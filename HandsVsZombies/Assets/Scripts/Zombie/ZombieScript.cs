@@ -44,6 +44,7 @@ public class ZombieScript : MonoBehaviour
     private Transform[] _bones;
     private float _elapsedResetBonesTime;
     private bool canStandUp = true;
+    private bool alive = true;
 
     public Transform MovePositionTransform;
 
@@ -80,20 +81,34 @@ public class ZombieScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (_currentState)
+        if (alive)
         {
-            case ZombieState.Walking:
-                WalkingBehaviour();
-                break;
-            case ZombieState.Ragdoll:
+                switch (_currentState)
+                {
+                    case ZombieState.Walking:
+                        WalkingBehaviour();
+                        break;
+                        case ZombieState.Ragdoll:
+                        RagdollBehaviour();
+                        break;
+                        case ZombieState.StandingUp:
+                        StandingUpBehaviour();
+                        break;
+                        case ZombieState.ResettingBones:
+                        ResettingBonesBehaviour();
+                        break;
+                }
+        }
+        else
+        {
+            if (_currentState == ZombieState.Ragdoll)
+            {
                 RagdollBehaviour();
-                break;
-            case ZombieState.StandingUp:
-                StandingUpBehaviour();
-                break;
-            case ZombieState.ResettingBones:
-                ResettingBonesBehaviour();
-                break;
+            }
+            else
+            {
+                EnableRagdoll();
+            }
         }
     }
     
@@ -169,7 +184,8 @@ public class ZombieScript : MonoBehaviour
 
     private void WalkingBehaviour()
     {
-        if (navMeshAgent.isActiveAndEnabled)
+        
+        if (navMeshAgent.isActiveAndEnabled && MovePositionTransform != null)
         {
             navMeshAgent.destination = MovePositionTransform.position;
         }
@@ -295,5 +311,11 @@ public class ZombieScript : MonoBehaviour
 
         transform.position = positionBeforeSampling;
         transform.rotation = rotationBeforeSampling;
+    }
+
+    public void kill()
+    {
+        alive = false;
+        EnableRagdoll();
     }
 }

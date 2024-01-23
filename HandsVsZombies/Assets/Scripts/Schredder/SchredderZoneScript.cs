@@ -15,18 +15,15 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
     {
         if (other.gameObject.CompareTag("Zombie"))
         {
-        RenderRefernce reference = other.GetComponent<RenderRefernce>();
-            if(reference != null)
+            /*foreach (var renderer in reference.Renderer)
             {
-                /*foreach (var renderer in reference.Renderer)
-                {
-                    renderer.gameObject.SetActive(false);
-                }*/
-                Destroy(other.GetComponentInParent<ZombieScript>().gameObject);
-                //other.transform.root.gameObject.SetActive(false);
-                GameManager.instance.AddScore(1);
-                OnSchredder.Invoke();
-            }
+                renderer.gameObject.SetActive(false);
+            }*/
+            Destroy(other.GetComponentInParent<ZombieScript>().gameObject);
+            //other.transform.root.gameObject.SetActive(false);
+            GameManager.instance.AddScore(1);
+            OnSchredder.Invoke();
+            
         }
     }
 

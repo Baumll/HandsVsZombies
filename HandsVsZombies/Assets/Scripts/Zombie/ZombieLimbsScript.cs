@@ -3,23 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GrabAbleItem))]
 public class ZombieLimbsScript : MonoBehaviour
 {
     [SerializeField] private Renderer[] limbRenderer;
-    [SerializeField] private GameObject replacementObject;
+    [SerializeField] private GameObject replacementObject = null;
     private CharacterJoint characterJoint;
-    [SerializeField] private float breakForce = 250f;
+    [SerializeField] private float breakForce = 100f;
 
-    public bool isLeg;
+    public bool isCrucial;
     private bool broken = false;
     private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das K�rperteil in der Hand
     private SpherePointer spherePointer;
+    private ZombieScript topMostParent;
 
 
     private void Start()
     {
         characterJoint = GetComponent<CharacterJoint>();
         grabAbleItem = GetComponent<GrabAbleItem>();
+        if (isCrucial)
+        {
+            topMostParent = GetComponentInParent<ZombieScript>();
+        }
     }
 
     private void Update()
@@ -42,7 +48,7 @@ public class ZombieLimbsScript : MonoBehaviour
     void OnJointBreak(float breakForce)
     {
         DisableLimb();
-        if (isLeg)
+        if (isCrucial)
         {
             //transform.root.GetComponent<ZombieScript>().LoseLeg();
         }
@@ -72,7 +78,13 @@ public class ZombieLimbsScript : MonoBehaviour
                 replacementObject.transform.SetParent(null);
                 replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
             }
+            
             grabAbleItem.FreeItem();
+
+            if (isCrucial)
+            {
+                topMostParent.kill();
+            }
         }
     }
 
