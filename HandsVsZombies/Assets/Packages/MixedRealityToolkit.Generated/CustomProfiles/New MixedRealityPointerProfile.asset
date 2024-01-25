@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Bits: 4294967291
   - controllerType: 5167
     handedness: 7
-    pointerPrefab: {fileID: 1507865967819406, guid: c2fde7a8938065b459cff79b8ed89393,
+    pointerPrefab: {fileID: 892030474714317710, guid: 6982618402e5cf14b8c64f1a22e9080e,
       type: 3}
     prioritizedLayerMasks:
     - serializedVersion: 2

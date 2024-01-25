@@ -8,6 +8,7 @@ public class Screamingscript : MonoBehaviour
     [SerializeField] private AudioSource scream;
 
     private float screamingDistance = 1.5f;
+    public float closestDistance;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class Screamingscript : MonoBehaviour
         
         if (zombies.Length > 0)
         {
-            float closestDistance = Mathf.Infinity;
+            closestDistance = Mathf.Infinity;
             GameObject closestZombie = null;
 
             foreach (GameObject zombie in zombies)
