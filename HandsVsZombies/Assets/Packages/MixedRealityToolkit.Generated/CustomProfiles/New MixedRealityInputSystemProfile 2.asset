@@ -115,14 +115,14 @@ MonoBehaviour:
     type: 2}
   inputActionRulesProfile: {fileID: 11400000, guid: 03945385d89102f41855bc8f5116b199,
     type: 2}
-  pointerProfile: {fileID: 11400000, guid: 48aa63a9725047b28d4137fd0834bc31, type: 2}
+  pointerProfile: {fileID: 11400000, guid: d2cd9ebf7326bf44380049d41c86c05a, type: 2}
   gesturesProfile: {fileID: 11400000, guid: bd7829a9b29409045a745b5a18299291, type: 2}
   speechCommandsProfile: {fileID: 11400000, guid: e8d0393e66374dae9646851a57dc6bc1,
     type: 2}
   enableControllerMapping: 1
-  controllerMappingProfile: {fileID: 11400000, guid: 39ded1fd0711a0c448413d0e1ec4f7f3,
+  controllerMappingProfile: {fileID: 11400000, guid: 6597e0d932aed544ca1a2fa24a52e439,
     type: 2}
-  controllerVisualizationProfile: {fileID: 11400000, guid: 949f929c41ce014469d208518a6d4bb4,
+  controllerVisualizationProfile: {fileID: 11400000, guid: bfce737cc6ba30842a69ba618c537bc6,
     type: 2}
   handTrackingProfile: {fileID: 11400000, guid: 30983702777776845bd76560e5c83c06,
     type: 2}

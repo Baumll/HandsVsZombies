@@ -33,14 +33,17 @@ public class ZombieLimbsScript : MonoBehaviour
         //Der Joint Kann brechen wenn er auch gegrabt ist
         if (grabAbleItem.IsGrabbed)
         {
+            //Debug.Log(name + ": " + characterJoint.currentForce.magnitude);
             if (characterJoint.currentForce.magnitude > breakForce)
             {
                 DisableLimb();
+                return;
             }
 
             if (characterJoint.currentTorque.magnitude > breakForce)
             {
                 DisableLimb();
+                return;
             }
         }
     }
@@ -80,6 +83,7 @@ public class ZombieLimbsScript : MonoBehaviour
             }
             
             grabAbleItem.FreeItem();
+            gameObject.SetActive(false);
 
             if (isCrucial)
             {

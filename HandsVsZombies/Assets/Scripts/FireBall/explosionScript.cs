@@ -15,7 +15,7 @@ public class explosionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("EXPLOSION!!!");
+        //Debug.Log("EXPLOSION!!!");
     }
 
     // Update is called once per frame
@@ -32,6 +32,22 @@ public class explosionScript : MonoBehaviour
     {
         if (other.CompareTag("Zombie"))
         {
+            Debug.Log("Found Zombie");
+            ZombieScript zombie = other.transform.root.GetComponent<ZombieScript>();
+            if (zombie != null)
+            {
+                zombie.EnableRagdoll();
+                zombie.GetComponentInChildren<Rigidbody>().AddExplosionForce(power, transform.position, radius, upLift );
+            }
+
+        }
+    }
+    
+    private void OnCollisionrEnter(Collider other)
+    {
+        if (other.CompareTag("Zombie"))
+        {
+            Debug.Log("Found Zombie");
             ZombieScript zombie = other.transform.root.GetComponent<ZombieScript>();
             if (zombie != null)
             {

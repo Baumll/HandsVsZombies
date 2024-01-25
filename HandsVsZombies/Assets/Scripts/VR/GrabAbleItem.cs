@@ -81,8 +81,8 @@ public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
         body.isKinematic = true;
         transform.parent = spherePointer.transform;
 
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        //transform.localPosition = Vector3.zero;
+        //transform.localRotation = Quaternion.identity;
 
         isGrabbed = true;
         OnGrabbtDown.Invoke();

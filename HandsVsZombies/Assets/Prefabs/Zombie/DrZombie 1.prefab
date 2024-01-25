@@ -1752,7 +1752,6 @@ GameObject:
   - component: {fileID: 6871470061111949547}
   - component: {fileID: 8819526775889547804}
   - component: {fileID: 5691504611704219678}
-  - component: {fileID: 4968852431615195201}
   m_Layer: 0
   m_Name: Base HumanRArmForearm
   m_TagString: Untagged
@@ -1872,18 +1871,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4968852431615195201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2825821834679525266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac32fc683e5d64242ba7e79c02850c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2966517246132056314
 GameObject:
   m_ObjectHideFlags: 0
