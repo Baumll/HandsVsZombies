@@ -8,34 +8,44 @@ public class HouseScript : MonoBehaviour
     [SerializeField] private GameObject houseScreamObject;
     private Screamingscript screamingscript;
     private int damage = 0;
+    private bool ZombieDamageisAktiv = false;
     
     void Start()
     {
         screamingscript = houseScreamObject.GetComponent<Screamingscript>();
-        StartCoroutine(ZombieDamage());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!ZombieDamageisAktiv)
+        {
+            StartCoroutine(ZombieDamage());
+            ZombieDamageisAktiv = true;
+        }
+
         if (damage >= 15)
         {
             Debug.Log("[House] Zombies Haben das Haus erreicht");
             GameManager.instance.GameLost();
-            StopCoroutine(ZombieDamage());
+            //StopCoroutine(ZombieDamage());
             damage = 0;
         }
+        
+        Debug.Log("HouseHitpoints" + damage);
     }
 
     private IEnumerator ZombieDamage()
     {
-        while (true)
+        yield return new WaitForSeconds(1);
+        Debug.Log("ZombieDamageisAktiv");
+        ZombieDamageisAktiv = false;        
+        
+        if (screamingscript.closestDistance <= 0.35)
         {
-            if (screamingscript.closestDistance <= 0.35)
-            {
-                damage = damage + 1;
-                yield return new WaitForSeconds(1);
-            }
+            damage = damage + 1;
         }
+        
     }
 }
