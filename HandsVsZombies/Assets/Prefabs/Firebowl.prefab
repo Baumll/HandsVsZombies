@@ -262,6 +262,9 @@ GameObject:
   - component: {fileID: 3832423520644792123}
   - component: {fileID: 279260115241768371}
   - component: {fileID: 6162113292346621271}
+  - component: {fileID: 4241091735336283432}
+  - component: {fileID: 592772522054783839}
+  - component: {fileID: 276191720973261498}
   m_Layer: 0
   m_Name: Firebowl
   m_TagString: Untagged
@@ -416,3 +419,55 @@ AudioReverbFilter:
   m_LFReference: 250
   m_ReflectionsDelay: 0
   m_ReverbPreset: 21
+--- !u!114 &4241091735336283432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106874986353876984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c748f3768ab714a8449b60fb9edc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsToReceive: 1
+  debounceThreshold: 0.01
+  localForward: {x: -0, y: -0, z: -1}
+  localUp: {x: 0, y: 1, z: 0}
+  localCenter: {x: 0, y: 0.51, z: -0.5}
+  bounds: {x: 1, y: 1.34}
+  touchableCollider: {fileID: 276191720973261498}
+--- !u!114 &592772522054783839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106874986353876984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb682a78a581a894288a2424a8aff769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &276191720973261498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106874986353876984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.34, z: 1}
+  m_Center: {x: 0, y: 0.51, z: 0}

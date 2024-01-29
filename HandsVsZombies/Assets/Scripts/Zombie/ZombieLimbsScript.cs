@@ -87,7 +87,7 @@ public class ZombieLimbsScript : MonoBehaviour
 
             if (isCrucial)
             {
-                topMostParent.kill();
+                topMostParent.Kill();
             }
         }
     }

@@ -313,9 +313,12 @@ public class ZombieScript : MonoBehaviour
         transform.rotation = rotationBeforeSampling;
     }
 
-    public void kill()
+    public void Kill()
     {
+        Debug.Log("[Zombie] Kill");
         alive = false;
+        canStandUp = false;
         EnableRagdoll();
+        navMeshAgent.enabled = false;
     }
 }

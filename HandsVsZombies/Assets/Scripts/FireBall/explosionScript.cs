@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class explosionScript : MonoBehaviour
@@ -28,7 +29,7 @@ public class explosionScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Zombie"))
         {
@@ -36,22 +37,39 @@ public class explosionScript : MonoBehaviour
             ZombieScript zombie = other.transform.root.GetComponent<ZombieScript>();
             if (zombie != null)
             {
-                zombie.EnableRagdoll();
+                print("[Explosion] Angekommen Trigger");
+                zombie.Kill();
+                zombie.GetComponentInChildren<Rigidbody>().AddExplosionForce(power, transform.position, radius, upLift );
+            }
+
+        }
+    }*/
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Zombie"))
+        {
+            Debug.Log("Zombie Collision " + other.name);
+            ZombieScript zombie = other.transform.parent.GetComponent<ZombieScript>();
+            if (zombie != null)
+            {
+                print("[Explosion] Angekommen Trigger " + zombie.name);
+                zombie.Kill();
                 zombie.GetComponentInChildren<Rigidbody>().AddExplosionForce(power, transform.position, radius, upLift );
             }
 
         }
     }
     
-    private void OnCollisionrEnter(Collider other)
+    private void OnCollisionrEnter(Collision collision)
     {
-        if (other.CompareTag("Zombie"))
+        if (collision.gameObject.CompareTag("Zombie"))
         {
             Debug.Log("Found Zombie");
-            ZombieScript zombie = other.transform.root.GetComponent<ZombieScript>();
+            ZombieScript zombie = collision.transform.root.GetComponent<ZombieScript>();
             if (zombie != null)
             {
-                zombie.EnableRagdoll();
+                print("[Explosion] Angekommen Normal");
+                zombie.Kill();
                 zombie.GetComponentInChildren<Rigidbody>().AddExplosionForce(power, transform.position, radius, upLift );
             }
 

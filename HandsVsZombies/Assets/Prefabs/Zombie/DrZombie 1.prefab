@@ -7396,7 +7396,7 @@ PrefabInstance:
     - target: {fileID: 4207200718971214354, guid: d133b509e8763d548863d95c087cd00c,
         type: 3}
       propertyPath: m_Name
-      value: ZombieHead
+      value: Zombiehead
       objectReference: {fileID: 0}
     - target: {fileID: 4207200718971214354, guid: d133b509e8763d548863d95c087cd00c,
         type: 3}

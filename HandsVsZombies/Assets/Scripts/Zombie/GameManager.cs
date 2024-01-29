@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public bool gameIsActive = false;
     public bool gameIsLost = false;
     private bool isPause = true;
+    public bool leftCanShoot = false;
+    public bool rightCanShoot = false;
     private GameObject[] spawnerList;
     [SerializeField] private float score;
 
