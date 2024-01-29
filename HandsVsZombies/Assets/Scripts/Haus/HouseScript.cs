@@ -7,7 +7,8 @@ public class HouseScript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject houseScreamObject;
     private Screamingscript screamingscript;
-    private int damage = 0;
+    [HideInInspector] public int damage = 0;
+    [HideInInspector] public int maxHP;
     private bool ZombieDamageisAktiv = false;
     
     void Start()
@@ -25,7 +26,7 @@ public class HouseScript : MonoBehaviour
             ZombieDamageisAktiv = true;
         }
 
-        if (damage >= 15)
+        if (damage >= maxHP)
         {
             Debug.Log("[House] Zombies Haben das Haus erreicht");
             GameManager.instance.GameLost();
@@ -42,7 +43,7 @@ public class HouseScript : MonoBehaviour
         Debug.Log("ZombieDamageisAktiv");
         ZombieDamageisAktiv = false;        
         
-        if (screamingscript.closestDistance <= 0.35)
+        if (screamingscript.closestDistance <= 0.4)
         {
             damage = damage + 1;
         }
