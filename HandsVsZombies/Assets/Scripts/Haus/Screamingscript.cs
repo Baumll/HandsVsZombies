@@ -16,13 +16,11 @@ public class Screamingscript : MonoBehaviour
 
     void Start()
     {
-        // Check if the AudioSource is null, and if so, log a warning
         if (scream == null)
         {
             Debug.LogWarning("AudioSource not assigned to the script.");
         }
-
-        // Initialize seamless audio loop with the AudioClip from AudioSource
+        
         InitializeAudioLoop();
     }
 
@@ -53,12 +51,16 @@ public class Screamingscript : MonoBehaviour
 
             foreach (GameObject zombie in zombies)
             {
-                float distance = Vector3.Distance(transform.position, zombie.transform.position);
-
-                if (distance < closestDistance)
+                ZombieScript zombieScript = zombie.GetComponent<ZombieScript>();
+                if (zombieScript != null && zombieScript.alive)
                 {
-                    closestDistance = distance;
-                    closestZombie = zombie;
+                    float distance = Vector3.Distance(transform.position, zombie.transform.position);
+
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestZombie = zombie;
+                    }
                 }
             }
 
@@ -89,6 +91,7 @@ public class Screamingscript : MonoBehaviour
 
         if (audioSource1.time >= audioSource1.clip.length - crossfadeDuration)
         {
+            // Swap audio sources to ensure seamless looping
             AudioSource temp = audioSource1;
             audioSource1 = audioSource2;
             audioSource2 = temp;
