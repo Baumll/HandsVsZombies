@@ -2066,12 +2066,12 @@ PrefabInstance:
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
@@ -2096,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.501
+      value: 0.616
       objectReference: {fileID: 0}
     - target: {fileID: 595653872818886488, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
