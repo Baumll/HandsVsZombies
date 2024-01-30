@@ -23,27 +23,27 @@ public class Bowl : MonoBehaviour, IMixedRealityPointerHandler
         Debug.Log("Trigger");
         if (eventData.Handedness == Handedness.Left)
         {
-            Debug.Log("Left Hand Baby");
+            GameManager.instance.leftCanShoot = true;   
         }
         
         if (eventData.Handedness == Handedness.Right)
         {
-            Debug.Log("Right Hand Baby");
+            GameManager.instance.rightCanShoot = true;
         }
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
