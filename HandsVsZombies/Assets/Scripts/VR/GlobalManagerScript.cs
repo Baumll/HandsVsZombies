@@ -34,6 +34,7 @@ public class GlobalManager : MonoBehaviour
 
     void Awake()
     {
+
         #if UNITY_EDITOR
 
         #else
@@ -53,9 +54,11 @@ public class GlobalManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        //Warted damit die Scene fertig geladen ist
         StartCoroutine(waiter());
         material = sceneTransition.GetComponent<Renderer>().material;
         
+        //Deaktiviere Teleport
         ShellHandRayPointer [] shellHandRayPointers = GameObject.FindObjectsByType<ShellHandRayPointer>(FindObjectsInactive.Include,FindObjectsSortMode.None);
         foreach (ShellHandRayPointer shellHandRayPointer in shellHandRayPointers)
         {
@@ -72,10 +75,12 @@ public class GlobalManager : MonoBehaviour
 
         if (open)
         {
+            //÷ffnet sich langsam
             material.SetFloat("_Radius", (deltaTransitionTime/transitionTime) * maxRange);
         }
         else
         {
+            //Schlieﬂt sich langsam
             material.SetFloat("_Radius", (1 - deltaTransitionTime / transitionTime ) * maxRange);
             //If Lens is Closed restart Game
             if (deltaTransitionTime <= 0)
@@ -86,10 +91,10 @@ public class GlobalManager : MonoBehaviour
             }
         }
 
+        //Y Knopf
         if (Input.GetButtonDown("Jump"))
         {
             ResetCamera();
-            //ResetGameScene(); 
         }
 
     }
@@ -123,6 +128,7 @@ public class GlobalManager : MonoBehaviour
         Debug.Log("Reset Camera");
         ResetCamera();
     }
+
 
     public void ResetGameScene()
     {
