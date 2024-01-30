@@ -8,7 +8,7 @@ public class Screaming : MonoBehaviour
     [HideInInspector] public GameObject[] zombies;
     private AudioSource activeScream;
 
-    private float screamingDistance = 1.5f;
+    private float screamingDistance = 1.7f;
     public float closestDistance;
 
     [SerializeField] private AudioSource source1;
@@ -56,7 +56,7 @@ public class Screaming : MonoBehaviour
             if (activeScream != null && closestZombie != null && closestDistance <= screamingDistance)
             {
                 float t = closestDistance / screamingDistance;
-                float screamVolume = Mathf.Lerp(0.8f, 0f, t);
+                float screamVolume = Mathf.Lerp(0.9f, 0f, t);
                 activeScream.volume = screamVolume;
             }
 
