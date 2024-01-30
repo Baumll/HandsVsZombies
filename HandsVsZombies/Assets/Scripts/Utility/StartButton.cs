@@ -29,7 +29,6 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
             boxCollider.enabled = true;
             textMeshPro.enabled = true;
             textMeshPro.text = "Reset";
-
         }
         else
         {
