@@ -11,11 +11,12 @@ public class FireBallControllerScript : MonoBehaviour
     private bool fireRight = false;
     private bool fireLeft = false;
     [SerializeField] private Direction handside;
-    public bool chaged = true;
     [SerializeField] private Transform fireBallSpawnPoint;
     [SerializeField] private GameObject fireBall;
     [SerializeField] private float fireBallSpeed = 400;
-
+    [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] private Material fireMaterial;
+    private Material passiveMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class FireBallControllerScript : MonoBehaviour
         newControls.Fireball.TriggerLeft.canceled += TriggerLeftOncanceled;
         newControls.Fireball.TriggerRight.started += TriggerRightOnstarted;
         newControls.Fireball.TriggerRight.canceled += TriggerRightOncanceled;
+
+        passiveMaterial = skinnedMeshRenderer.material;
     }
 
     private void TriggerRightOncanceled(InputAction.CallbackContext obj)
@@ -51,26 +54,72 @@ public class FireBallControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool firering = false;
-        if (handside == Direction.Left && fireLeft)
+        if(GameManager.instance != null)
         {
-            
-        }
-        else
-        {
-            if (Input.GetButtonDown("Fire1") && !Input.GetButtonDown("TriggerRight"))
+            if (handside == Direction.Left)
             {
-                firering = true;
+                if (GameManager.instance.leftCanShoot)
+                {
+                    skinnedMeshRenderer.material = fireMaterial;
+                }
+                else
+                {
+                    skinnedMeshRenderer.material = passiveMaterial;
+                }
             }
-        }
-        if (chaged && firering) {
-            if (fireBall != null && fireBallSpawnPoint != null)
+
+            if (handside == Direction.Right)
             {
-                GameObject newFireBall = Instantiate(fireBall, fireBallSpawnPoint.position, fireBallSpawnPoint.rotation);
-                newFireBall.GetComponent<Rigidbody>().AddForce(fireBallSpawnPoint.forward * fireBallSpeed);
+                if (GameManager.instance.rightCanShoot)
+                {
+                    skinnedMeshRenderer.material = fireMaterial;
+                }
+                else
+                {
+                    skinnedMeshRenderer.material = passiveMaterial;
+                }
             }
-            Debug.Log( name + " Pew");
-            //chaged = false;
+
+            bool firering = false;
+            if (handside == Direction.Left && fireLeft)
+            {
+                if (Input.GetButtonDown("Fire2") && !Input.GetButtonDown("TriggerLeft"))
+                {
+                    if (GameManager.instance.leftCanShoot)
+                    {
+                        firering = true;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Fire1") && !Input.GetButtonDown("TriggerRight"))
+                {
+                    if (GameManager.instance.rightCanShoot)
+                    {
+                        firering = true;
+                    }
+                }
+            }
+            if (firering)
+            {
+                if (fireBall != null && fireBallSpawnPoint != null)
+                {
+                    GameObject newFireBall = Instantiate(fireBall, fireBallSpawnPoint.position, fireBallSpawnPoint.rotation);
+                    newFireBall.GetComponent<Rigidbody>().AddForce(fireBallSpawnPoint.forward * fireBallSpeed);
+                    if (handside == Direction.Left)
+                    {
+                        GameManager.instance.leftCanShoot = false;
+                    }
+                    else
+                    {
+                        GameManager.instance.rightCanShoot = false;
+                    }
+                }
+                Debug.Log(name + " Pew");
+                //chaged = false;
+            }
         }
     }
+        
 }

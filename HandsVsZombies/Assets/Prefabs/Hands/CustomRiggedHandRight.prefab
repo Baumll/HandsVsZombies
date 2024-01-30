@@ -108,10 +108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handside: 1
-  chaged: 1
   fireBallSpawnPoint: {fileID: 1705750200823061347}
   fireBall: {fileID: 489303055235697758, guid: 1974bd2640b9792418b99214c9b4bf3d, type: 3}
   fireBallSpeed: 400
+  skinnedMeshRenderer: {fileID: 8178360485944634701}
+  fireMaterial: {fileID: 2100000, guid: 3eb90b765c7130e47b3037eeff5cff94, type: 2}
 --- !u!1 &8178360485931032609
 GameObject:
   m_ObjectHideFlags: 0
