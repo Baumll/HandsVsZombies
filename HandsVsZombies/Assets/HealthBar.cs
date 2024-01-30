@@ -9,14 +9,14 @@ public class HealthBar : MonoBehaviour
 
     private Transform playerTransform;
     [SerializeField] private GameObject house;
-    private HouseScript houseScript;
+    private HouseHP houseScript;
 
     void Start()
     {
         if (healthBarImage == null)
             healthBarImage = GetComponent<RawImage>();
 
-        houseScript = house.GetComponent<HouseScript>();
+        houseScript = house.GetComponent<HouseHP>();
         
         if (Camera.main != null)
         {

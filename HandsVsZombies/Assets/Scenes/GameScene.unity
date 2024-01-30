@@ -28959,6 +28959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseScreamObject: {fileID: 1365070621}
+  damage: 0
+  maxHP: 0
 --- !u!1001 &1238041420433565262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28985,7 +28987,7 @@ PrefabInstance:
     - target: {fileID: 30784880776942735, guid: 8be29b38c07663b4db9f598dd301d10d,
         type: 3}
       propertyPath: waveList.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 30784880776942735, guid: 8be29b38c07663b4db9f598dd301d10d,
         type: 3}
