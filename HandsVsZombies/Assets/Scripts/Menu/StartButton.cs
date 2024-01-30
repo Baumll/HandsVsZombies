@@ -23,7 +23,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 
     private void Update()
     {
-üokijuz7        if (GameManager.instance.gameIsLost)
+        if (GameManager.instance.gameIsLost)
         {
             meshRenderer.enabled = true;
             boxCollider.enabled = true;
