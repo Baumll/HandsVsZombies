@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Screamingscript : MonoBehaviour
+public class ScreamingScript : MonoBehaviour
 {
     public string zombieTag = "Zombie";
     private GameObject[] zombies;
