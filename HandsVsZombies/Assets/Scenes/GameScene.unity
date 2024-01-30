@@ -2019,12 +2019,12 @@ PrefabInstance:
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
         type: 3}
@@ -2471,7 +2471,8 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2022391274443621180, guid: 163099117d8b97a4bb83120a495b01f9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2487,6 +2488,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2078144750}
+    - targetCorrespondingSourceObject: {fileID: 4085792054466627547, guid: 163099117d8b97a4bb83120a495b01f9,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1365070623}
   m_SourcePrefab: {fileID: 100100000, guid: 163099117d8b97a4bb83120a495b01f9, type: 3}
 --- !u!1 &627547076
 GameObject:
@@ -18366,6 +18371,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 579326898}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1365070622 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 504005485849152330, guid: 163099117d8b97a4bb83120a495b01f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 579326898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1365070623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365070621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c331e0d9cecc54b80e8b7cee6d13ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieTag: Zombie
+  scream: {fileID: 1365070622}
+  closestDistance: 0
+  crossfadeDuration: 2
 --- !u!1001 &1448299763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29205,10 +29232,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078144746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68e2d71cb1f80547af6969169418fb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 01490f9aa097e5a48892a7c57c2419be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   houseScreamObject: {fileID: 1365070621}
+  damage: 0
+  maxHP: 0
 --- !u!4 &681690053019070047
 Transform:
   m_ObjectHideFlags: 0

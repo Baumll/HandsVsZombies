@@ -76,9 +76,9 @@ MonoBehaviour:
   overrideGlobalPointerExtent: 0
   pointerExtent: 10
   defaultPointerExtent: 10
-  sphereCastRadius: 0.2
+  sphereCastRadius: 0.12
   pullbackDistance: 0.08
-  nearObjectSectorAngle: 80
+  nearObjectSectorAngle: 60
   nearObjectMargin: 0.2
   nearObjectAxisLerp: 0.9
   nearObjectSmoothingFactor: 0.4
