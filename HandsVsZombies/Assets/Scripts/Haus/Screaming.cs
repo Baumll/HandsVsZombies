@@ -70,6 +70,7 @@ public class Screaming : MonoBehaviour
         else
         {
             Debug.Log("No zombies in the scene.");
+            closestDistance = Mathf.Infinity;
         }
     }
     
