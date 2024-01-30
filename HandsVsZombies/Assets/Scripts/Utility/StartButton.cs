@@ -8,11 +8,14 @@ using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 {
+    public UnityEvent OnResetbutton;
     public UnityEvent OnStartbutton;
 
     private MeshRenderer meshRenderer;
     private BoxCollider boxCollider;
     private TextMeshPro textMeshPro;
+
+    public GameObject exitButton;
 
     private void Start()
     {
@@ -29,6 +32,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
             boxCollider.enabled = true;
             textMeshPro.enabled = true;
             textMeshPro.text = "Reset";
+            exitButton.SetActive(true);
         }
         else
         {
@@ -46,7 +50,12 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
         textMeshPro.enabled = false;
+        exitButton.SetActive(false);
         if (GameManager.instance.gameIsLost)
+        {
+            OnResetbutton.Invoke();
+        }
+        else
         {
             OnStartbutton.Invoke();
         }

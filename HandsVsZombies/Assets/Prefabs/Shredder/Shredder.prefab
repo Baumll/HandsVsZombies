@@ -10370,10 +10370,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSchredder:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7814634814185296579}
+        m_TargetAssemblyTypeName: SchredderScript, Assembly-CSharp
+        m_MethodName: enableSchreddering
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OffSchredder:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7814634814185296579}
+        m_TargetAssemblyTypeName: SchredderScript, Assembly-CSharp
+        m_MethodName: disableSchreddering
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &831510127558744851
 MonoBehaviour:
   m_ObjectHideFlags: 0

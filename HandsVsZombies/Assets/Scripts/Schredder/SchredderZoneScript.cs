@@ -13,6 +13,11 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
     
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Shredderable"))
+        {
+            Destroy(other.gameObject);
+            OnSchredder.Invoke();
+        }
         if (other.gameObject.CompareTag("Zombie"))
         {
             /*foreach (var renderer in reference.Renderer)
@@ -50,7 +55,7 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
@@ -60,6 +65,6 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

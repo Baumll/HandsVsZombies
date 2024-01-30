@@ -27,22 +27,4 @@ public class ExitButton : MonoBehaviour, IMixedRealityPointerHandler
     {
         //throw new System.NotImplementedException();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.instance != null)
-        {
-            if (GameManager.instance.gameIsActive)
-            {
-                Destroy(this);
-            }
-        }
-    }
 }
