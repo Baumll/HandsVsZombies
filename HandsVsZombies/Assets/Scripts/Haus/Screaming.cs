@@ -1,43 +1,32 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.Serialization;
 
 public class Screaming : MonoBehaviour
 {
     public string zombieTag = "Zombie";
     private GameObject[] zombies;
-    [SerializeField] private AudioSource scream;
+    private AudioSource activeScream;
 
     private float screamingDistance = 1.5f;
     public float closestDistance;
 
-    private AudioSource audioSource1;
-    private AudioSource audioSource2;
-    private AudioClip loopClip; // Dynamic loopClip assignment
-    public float crossfadeDuration = 2.0f;
-
+    [SerializeField] private AudioSource source1;
+    [SerializeField] private AudioSource source2;
+    [SerializeField] private AudioSource source3;
+    [SerializeField] private AudioSource source4;
+    [SerializeField] private AudioSource source5;
+    [SerializeField] private AudioSource source6;
+    [SerializeField] private AudioSource source7;
+    [SerializeField] private AudioSource source8;
+    [SerializeField] private AudioSource source9;
+    [SerializeField] private AudioSource source10;
+    
+    private int randomIntSound;
+    private bool screamDelayIsActive = false;
     void Start()
     {
-        if (scream == null)
-        {
-            Debug.LogWarning("AudioSource not assigned to the script.");
-        }
-        
-        InitializeAudioLoop();
-    }
 
-    void InitializeAudioLoop()
-    {
-        audioSource1 = gameObject.AddComponent<AudioSource>();
-        audioSource2 = gameObject.AddComponent<AudioSource>();
-        
-        loopClip = scream.clip;
-
-        audioSource1.clip = loopClip;
-        audioSource2.clip = loopClip;
-        
-        scream.loop = true;
-
-        audioSource1.Play();
-        audioSource2.PlayDelayed(crossfadeDuration);
     }
 
     void Update()
@@ -64,40 +53,59 @@ public class Screaming : MonoBehaviour
                 }
             }
 
-            if (scream != null && closestZombie != null && closestDistance <= screamingDistance)
+            if (activeScream != null && closestZombie != null && closestDistance <= screamingDistance)
             {
                 float t = closestDistance / screamingDistance;
                 float screamVolume = Mathf.Lerp(1f, 0f, t);
-                scream.volume = screamVolume;
-
-                if (!scream.isPlaying)
-                {
-                    scream.Play();
-                }
+                activeScream.volume = screamVolume;
             }
             
-            AdjustAudioLoopVolume(scream.volume);
+            if (screamDelayIsActive == false && activeScream.isPlaying == false)
+            {
+                StartCoroutine(ScreamDelay());
+                screamDelayIsActive = true;
+            }
+            
         }
         else
         {
             Debug.Log("No zombies in the scene.");
         }
     }
-
-    void AdjustAudioLoopVolume(float volume)
+    
+    private IEnumerator ScreamDelay()
     {
-        audioSource1.volume = volume;
-        audioSource2.volume = 1.0f - volume;
-
-        if (audioSource1.time >= audioSource1.clip.length - crossfadeDuration)
-        {
-            // Swap audio sources to ensure seamless looping
-            AudioSource temp = audioSource1;
-            audioSource1 = audioSource2;
-            audioSource2 = temp;
-
-            audioSource2.time = 0;
-            audioSource2.PlayDelayed(crossfadeDuration);
-        }
+        yield return new WaitForSeconds(0.5f);
+        SoundSelection();
+        Debug.Log("Haus schreit");
+        screamDelayIsActive = false;
+        
+        activeScream.Play();
+    }
+    
+    private void SoundSelection()
+    {
+        randomIntSound = Random.Range(0, 100);
+        
+        if (randomIntSound <= 10)
+            activeScream = source1;
+        else if (randomIntSound <= 20)
+            activeScream = source2;
+        else if (randomIntSound <= 30)
+            activeScream = source3;
+        else if (randomIntSound <= 40)
+            activeScream = source4;
+        else if (randomIntSound <= 50)
+            activeScream = source5;
+        else if (randomIntSound <= 60)
+            activeScream = source6;
+        else if (randomIntSound <= 70)
+            activeScream = source7;
+        else if (randomIntSound <= 80)
+            activeScream = source8;
+        else if (randomIntSound <= 90)
+            activeScream = source9;
+        else if (randomIntSound <= 100)
+            activeScream = source10;
     }
 }
