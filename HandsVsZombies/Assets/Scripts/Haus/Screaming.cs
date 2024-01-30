@@ -26,7 +26,7 @@ public class Screaming : MonoBehaviour
     private bool screamDelayIsActive = false;
     void Start()
     {
-
+        SoundSelection();
     }
 
     void Update()
@@ -59,7 +59,7 @@ public class Screaming : MonoBehaviour
                 float screamVolume = Mathf.Lerp(1f, 0f, t);
                 activeScream.volume = screamVolume;
             }
-            
+
             if (screamDelayIsActive == false && activeScream.isPlaying == false)
             {
                 StartCoroutine(ScreamDelay());
@@ -77,7 +77,7 @@ public class Screaming : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SoundSelection();
-        Debug.Log("Haus schreit");
+        
         screamDelayIsActive = false;
         
         activeScream.Play();
