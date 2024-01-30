@@ -7,14 +7,13 @@ public class HouseHP : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject houseScreamObject;
     private Screaming screamingscript;
-    public int maxHP = 15;
-    public int damage = 0;
+    public float maxHP = 15;
+    public float damage = 0;
     private bool ZombieDamageisAktiv = false;
     
     void Start()
     {
         screamingscript = houseScreamObject.GetComponent<Screaming>();
-        maxHP = 15;
 
     }
 
