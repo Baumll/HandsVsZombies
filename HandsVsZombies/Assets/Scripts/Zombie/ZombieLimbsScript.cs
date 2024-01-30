@@ -11,7 +11,7 @@ public class ZombieLimbsScript : MonoBehaviour
     private CharacterJoint characterJoint;
     [SerializeField] private float breakForce = 100f;
 
-    public bool isCrucial;
+    public bool isCrucial; //Wenn true dann stribt der Zombie nach der Abtrennung
     private bool broken = false;
     private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das K�rperteil in der Hand
     private SpherePointer spherePointer;
@@ -30,10 +30,9 @@ public class ZombieLimbsScript : MonoBehaviour
 
     private void Update()
     {
-        //Der Joint Kann brechen wenn er auch gegrabt ist
+        //Der Joint Kann brechen wenn er auch gegrabt ist und zu viel Kraft drauf ist
         if (grabAbleItem.IsGrabbed)
         {
-            //Debug.Log(name + ": " + characterJoint.currentForce.magnitude);
             if (characterJoint.currentForce.magnitude > breakForce)
             {
                 DisableLimb();
@@ -70,17 +69,19 @@ public class ZombieLimbsScript : MonoBehaviour
             Debug.Log("break!");
             ZombieLimbsScript[] characterJointyList = GetComponentsInChildren<ZombieLimbsScript>();
 
+            //Deaktiviert die abgetrennten Gliedmaßen
             foreach (var limb in limbRenderer)
             {
                 limb.gameObject.SetActive(false);
             }
 
-            if (replacementObject is not null)
-            {
-                replacementObject.gameObject.SetActive(true);
-                replacementObject.transform.SetParent(null);
-                replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
-            }
+            //Hier soll eigentlich die Abgetrennte Gliedmaße Erstellt werden
+            //if (replacementObject is not null)
+            //{
+            //    replacementObject.gameObject.SetActive(true);
+            //    replacementObject.transform.SetParent(null);
+            //    replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
+            //}
             
             grabAbleItem.FreeItem();
             gameObject.SetActive(false);
