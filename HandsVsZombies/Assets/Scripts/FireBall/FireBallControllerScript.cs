@@ -20,7 +20,7 @@ public class FireBallControllerScript : MonoBehaviour
     [SerializeField] private Material fireMaterial;
     private Material passiveMaterial;
 
-    // Start is called before the first frame update
+    // controll Zeugs
     void Start()
     {
         NewControls newControls = new NewControls();
@@ -77,7 +77,7 @@ public class FireBallControllerScript : MonoBehaviour
         fireLeftBlock = false;
     }
 
-    // Update is called once per frame
+    // Feuert Den Feuerball ab
     void Update()
     {
         if(GameManager.instance != null)

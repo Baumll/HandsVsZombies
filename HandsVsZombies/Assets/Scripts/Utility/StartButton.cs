@@ -8,6 +8,8 @@ using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 {
+    //Started das Spiel oder resetet die Scene, wenn man verloren hat.
+
     public UnityEvent OnResetbutton;
     public UnityEvent OnStartbutton;
 

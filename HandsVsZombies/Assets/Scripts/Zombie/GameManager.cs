@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //Verwaltet das Spielgeschehen, Wellen, Score, Pausen... 
+
     public static GameManager instance { get; private set; }
 
     [SerializeField] private WaveScriptableObject[] waveList;
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("List Size: " + spawnerList.Length.ToString());
     }
 
-    // Update is called once per frame
+    //Wellen System
     void Update()
     {
         if (gameIsActive)

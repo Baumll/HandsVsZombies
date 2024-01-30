@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class TestPointer : MonoBehaviour, IMixedRealityPointerHandler, IMixedRealityFocusHandler
 {
-
+    //Wird nicht verwendet ist aber eine gute Referenz
 
     [SerializeField] private MeshRenderer m_Renderer;
     [SerializeField] private Color m_Color;
@@ -43,12 +43,6 @@ public class TestPointer : MonoBehaviour, IMixedRealityPointerHandler, IMixedRea
         m_material = meshRenderer.material;
         def_Color = m_material.color;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnFocusEnter(FocusEventData eventData)

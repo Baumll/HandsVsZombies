@@ -6,21 +6,10 @@ using UnityEngine;
 
 public class Bowl : MonoBehaviour, IMixedRealityPointerHandler
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Aktiviert die Hand für den Feuerball
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        Debug.Log("Trigger");
         if (eventData.Handedness == Handedness.Left)
         {
             GameManager.instance.leftCanShoot = true;   

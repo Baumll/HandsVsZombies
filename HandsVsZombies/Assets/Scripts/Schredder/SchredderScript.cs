@@ -21,7 +21,7 @@ public class SchredderScript : MonoBehaviour
         schreddeerZone.OnSchredder.AddListener(enableSchreddering);
     }
 
-    // Update is called once per frame
+    // Fügt Blut hinzu/macht es weg
     void Update()
     {
         if (isSchreddering)

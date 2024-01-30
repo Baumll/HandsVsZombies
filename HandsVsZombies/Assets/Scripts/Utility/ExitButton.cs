@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class ExitButton : MonoBehaviour, IMixedRealityPointerHandler
 {
+    //Beendet das Spiel
+
     public UnityEvent OnExitbutton;
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)

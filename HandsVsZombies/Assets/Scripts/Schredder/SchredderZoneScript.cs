@@ -11,6 +11,8 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
     public UnityEvent OnSchredder;
     public UnityEvent OffSchredder;
     
+
+    //Schreddert Zombies und Anderes
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Shredderable"))
@@ -20,34 +22,13 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
         }
         if (other.gameObject.CompareTag("Zombie"))
         {
-            /*foreach (var renderer in reference.Renderer)
-            {
-                renderer.gameObject.SetActive(false);
-            }*/
             Destroy(other.GetComponentInParent<ZombieScript>().gameObject);
-            //other.transform.root.gameObject.SetActive(false);
             GameManager.instance.AddScore(1);
             OnSchredder.Invoke();
-            
         }
     }
 
-    public void OnTouchStarted(HandTrackingInputEventData eventData)
-    {
-        Debug.Log("Enter Hand in Schredder");
-        OnSchredder.Invoke();
-    }
-
-    public void OnTouchCompleted(HandTrackingInputEventData eventData)
-    {
-        OffSchredder.Invoke();
-    }
-
-    public void OnTouchUpdated(HandTrackingInputEventData eventData)
-    {
-        Debug.Log("Enter Hand in Schredder");
-    }
-
+    //Schreddert auch die Hand
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
         OnSchredder.Invoke();

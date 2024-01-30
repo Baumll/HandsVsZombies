@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CanvasInteraction : MonoBehaviour
 {
-
+    //Wird nicht Verwendet ist aber eine gute Referenz
 public void OnButtonQuit()
 {
     #if UNITY_EDITOR
@@ -26,6 +26,6 @@ public void OnButtonStart()
 
         Debug.Log("Starrrrt");
         Debug.Log("I am a pirate!");
-
+        Debug.Log("Arrr!!");
     }
 }

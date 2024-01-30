@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class GlobalManager : MonoBehaviour
 {
+    //verwaltet die Scenen
+
     public static GlobalManager instance { get; private set; }
 
     public GameObject vRPlaySpace;

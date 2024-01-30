@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DestroyAfterStart : MonoBehaviour
 {
+    //Das Srpt Zerstört nur die Textinfos nach einer gewissen Zeit
+
     [SerializeField] private float time = 10;
     private float deltaTime = 0;
     private bool isActive = false;

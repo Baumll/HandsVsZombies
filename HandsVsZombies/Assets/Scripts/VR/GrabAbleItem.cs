@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NearInteractionGrabbable), typeof(Rigidbody))]
 public class GrabAbleItem : MonoBehaviour, IMixedRealityPointerHandler
 {
+    //Geifbare items + Sachen für zombie Gliedmaßen
 
     private Rigidbody body;
     private Transform parent;

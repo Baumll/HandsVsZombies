@@ -18,6 +18,7 @@ public class ShredderAudio : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         if (!schredderSound.isPlaying && schredderScript.isSchreddering == true)
