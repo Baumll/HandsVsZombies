@@ -187,6 +187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7272550596712180464, guid: 5d956882d704d164cab4c09fe27a71b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8454234318843898435, guid: 5d956882d704d164cab4c09fe27a71b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1988,6 +1993,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2058325698}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &308420743923482878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179154074691488002, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973310860261750283, guid: 4f81c3bb596e1c940824384e28b5df03,
+        type: 3}
+      propertyPath: m_Name
+      value: BloodSplatter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f81c3bb596e1c940824384e28b5df03, type: 3}
 --- !u!1001 &1414401818644782506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2182,3 +2255,4 @@ SceneRoots:
   - {fileID: 2058325698}
   - {fileID: 241145566}
   - {fileID: 1414401818644782506}
+  - {fileID: 308420743923482878}
