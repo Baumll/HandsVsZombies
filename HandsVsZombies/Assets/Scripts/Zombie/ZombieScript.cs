@@ -44,7 +44,7 @@ public class ZombieScript : MonoBehaviour
     private Transform[] _bones;
     private float _elapsedResetBonesTime;
     private bool canStandUp = true;
-    [HideInInspector] public bool alive = true;
+    public bool alive = true;
 
     public Transform MovePositionTransform;
 

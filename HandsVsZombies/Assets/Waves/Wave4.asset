@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wave4
   m_EditorClassIdentifier: 
   ZombieCount: 7
-  WaveLenght: 10
-  PauseLenght: 1
+  WaveLenght: 30
+  PauseLenght: 5

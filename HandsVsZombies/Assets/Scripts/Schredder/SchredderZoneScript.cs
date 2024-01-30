@@ -45,7 +45,7 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        Debug.Log("On Pointer Down");
+        OnSchredder.Invoke();
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -55,7 +55,7 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
     {
-        Debug.Log("On Pointer Up");
+        OffSchredder.Invoke();
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)

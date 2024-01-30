@@ -53,6 +53,24 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FireLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d69ad30-31fc-4f8a-8672-d07afbd29705"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""f800cd9f-70bd-4b98-8707-cf42051e2fa4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +128,50 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""action"": ""TriggerRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e92025a-43e5-4a1e-a2a5-edf604329a0f"",
+                    ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9635cd00-0c2e-4b03-96e0-442a980d99d5"",
+                    ""path"": ""<XRController>{LeftHand}/{PrimaryTouch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45523968-b8d2-4ffc-a050-1f98a0ca5335"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbc9bed3-21b0-4570-b537-b5757310c418"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryTouch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,6 +183,8 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         m_Fireball_Newaction = m_Fireball.FindAction("New action", throwIfNotFound: true);
         m_Fireball_TriggerLeft = m_Fireball.FindAction("TriggerLeft", throwIfNotFound: true);
         m_Fireball_TriggerRight = m_Fireball.FindAction("TriggerRight", throwIfNotFound: true);
+        m_Fireball_FireLeft = m_Fireball.FindAction("FireLeft", throwIfNotFound: true);
+        m_Fireball_FireRight = m_Fireball.FindAction("FireRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +249,8 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Fireball_Newaction;
     private readonly InputAction m_Fireball_TriggerLeft;
     private readonly InputAction m_Fireball_TriggerRight;
+    private readonly InputAction m_Fireball_FireLeft;
+    private readonly InputAction m_Fireball_FireRight;
     public struct FireballActions
     {
         private @NewControls m_Wrapper;
@@ -192,6 +258,8 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         public InputAction @Newaction => m_Wrapper.m_Fireball_Newaction;
         public InputAction @TriggerLeft => m_Wrapper.m_Fireball_TriggerLeft;
         public InputAction @TriggerRight => m_Wrapper.m_Fireball_TriggerRight;
+        public InputAction @FireLeft => m_Wrapper.m_Fireball_FireLeft;
+        public InputAction @FireRight => m_Wrapper.m_Fireball_FireRight;
         public InputActionMap Get() { return m_Wrapper.m_Fireball; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -210,6 +278,12 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             @TriggerRight.started += instance.OnTriggerRight;
             @TriggerRight.performed += instance.OnTriggerRight;
             @TriggerRight.canceled += instance.OnTriggerRight;
+            @FireLeft.started += instance.OnFireLeft;
+            @FireLeft.performed += instance.OnFireLeft;
+            @FireLeft.canceled += instance.OnFireLeft;
+            @FireRight.started += instance.OnFireRight;
+            @FireRight.performed += instance.OnFireRight;
+            @FireRight.canceled += instance.OnFireRight;
         }
 
         private void UnregisterCallbacks(IFireballActions instance)
@@ -223,6 +297,12 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             @TriggerRight.started -= instance.OnTriggerRight;
             @TriggerRight.performed -= instance.OnTriggerRight;
             @TriggerRight.canceled -= instance.OnTriggerRight;
+            @FireLeft.started -= instance.OnFireLeft;
+            @FireLeft.performed -= instance.OnFireLeft;
+            @FireLeft.canceled -= instance.OnFireLeft;
+            @FireRight.started -= instance.OnFireRight;
+            @FireRight.performed -= instance.OnFireRight;
+            @FireRight.canceled -= instance.OnFireRight;
         }
 
         public void RemoveCallbacks(IFireballActions instance)
@@ -245,5 +325,7 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
         void OnTriggerLeft(InputAction.CallbackContext context);
         void OnTriggerRight(InputAction.CallbackContext context);
+        void OnFireLeft(InputAction.CallbackContext context);
+        void OnFireRight(InputAction.CallbackContext context);
     }
 }

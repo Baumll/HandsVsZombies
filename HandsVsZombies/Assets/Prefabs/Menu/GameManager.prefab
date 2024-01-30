@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8033914389681857253}
-  - component: {fileID: 30784880776942735}
+  - component: {fileID: 7396211433081482165}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30784880776942735
+--- !u!114 &7396211433081482165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,8 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05805eb3c8151464bb6ac4971c57da40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombiesPerWave: 5
-  waveLenght: 10
-  waveLenghtScaling: 0
-  timeBetweenWaves: 5
-  timeBetweenWavesScaling: 0
+  waveList:
+  - {fileID: 11400000, guid: 8d0bf9c6fb5290a4d954c6b4fd0693e3, type: 2}
+  - {fileID: 11400000, guid: 3eb4f35654d3e994d81c7140b19a7199, type: 2}
+  - {fileID: 11400000, guid: bd1acafc460d0c5469f0f315587589e1, type: 2}
+  - {fileID: 11400000, guid: 2cf1da1dd444ec5458ee61feb4912988, type: 2}
+  - {fileID: 11400000, guid: 88734c046e4caa04eb442bb16862cf5a, type: 2}
+  - {fileID: 11400000, guid: 916b1eae23038354592cfec253d20c97, type: 2}
+  - {fileID: 11400000, guid: 70e4f16ef771b9741aab18935f5439fa, type: 2}
+  gameIsActive: 0
+  gameIsLost: 0
+  leftCanShoot: 0
+  rightCanShoot: 0
+  score: 0

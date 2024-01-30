@@ -11,7 +11,7 @@ public void OnButtonQuit()
     #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
     #else
-            Application.Stop();
+            Application.Quit();
     #endif
 }
 

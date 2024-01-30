@@ -8,12 +8,14 @@ public class FireBallControllerScript : MonoBehaviour
 {
     enum Direction {Left, Right};
 
-    private bool fireRight = false;
-    private bool fireLeft = false;
+    private bool fireRightBlock = false;
+    private bool fireLeftBlock = false;
+    private bool fireRightPressed = false;
+    private bool fireLeftPressed = false;
     [SerializeField] private Direction handside;
     [SerializeField] private Transform fireBallSpawnPoint;
     [SerializeField] private GameObject fireBall;
-    [SerializeField] private float fireBallSpeed = 400;
+    [SerializeField] private float fireBallSpeed = 200;
     [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
     [SerializeField] private Material fireMaterial;
     private Material passiveMaterial;
@@ -27,28 +29,52 @@ public class FireBallControllerScript : MonoBehaviour
         newControls.Fireball.TriggerLeft.canceled += TriggerLeftOncanceled;
         newControls.Fireball.TriggerRight.started += TriggerRightOnstarted;
         newControls.Fireball.TriggerRight.canceled += TriggerRightOncanceled;
+        newControls.Fireball.FireRight.started += FireRight_started;
+        newControls.Fireball.FireRight.canceled += FireRight_canceled;
+        newControls.Fireball.FireLeft.started += FireLeft_started;
+        newControls.Fireball.FireLeft.canceled += FireLeft_canceled;
 
         passiveMaterial = skinnedMeshRenderer.material;
     }
 
+    private void FireRight_canceled(InputAction.CallbackContext obj)
+    {
+        fireRightPressed = false;
+    }
+
+    private void FireLeft_started(InputAction.CallbackContext obj)
+    {
+        fireLeftPressed = true;
+    }
+
+    private void FireLeft_canceled(InputAction.CallbackContext obj)
+    {
+        fireLeftPressed = false;
+    }
+
+    private void FireRight_started(InputAction.CallbackContext obj)
+    {
+        fireRightPressed = true;
+    }
+
     private void TriggerRightOncanceled(InputAction.CallbackContext obj)
     {
-        fireRight = false;
+        fireRightBlock = false;
     }
 
     private void TriggerRightOnstarted(InputAction.CallbackContext obj)
     {
-        fireRight = true;
+        fireRightBlock = true;
     }
 
     private void TriggerLeftOncanceled(InputAction.CallbackContext obj)
     {
-        fireLeft = false;
+        fireLeftBlock = false;
     }
 
     private void TriggerLeftOnstarted(InputAction.CallbackContext obj)
     {
-        fireLeft = false;
+        fireLeftBlock = false;
     }
 
     // Update is called once per frame
@@ -81,9 +107,9 @@ public class FireBallControllerScript : MonoBehaviour
             }
 
             bool firering = false;
-            if (handside == Direction.Left && fireLeft)
+            if (handside == Direction.Left)
             {
-                if (Input.GetButtonDown("Fire2") && !Input.GetButtonDown("TriggerLeft"))
+                if (!fireLeftBlock && fireLeftPressed)
                 {
                     if (GameManager.instance.leftCanShoot)
                     {
@@ -93,7 +119,7 @@ public class FireBallControllerScript : MonoBehaviour
             }
             else
             {
-                if (Input.GetButtonDown("Fire1") && !Input.GetButtonDown("TriggerRight"))
+                if (!fireRightBlock && fireRightPressed)
                 {
                     if (GameManager.instance.rightCanShoot)
                     {

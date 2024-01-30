@@ -34,6 +34,11 @@ public class GlobalManager : MonoBehaviour
 
     void Awake()
     {
+        #if UNITY_EDITOR
+
+        #else
+                SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
+        #endif
         //Ensure there is only one instance
         if (instance != null && instance != this)
         {

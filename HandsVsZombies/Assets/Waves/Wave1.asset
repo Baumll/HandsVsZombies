@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deee51191a1d1f946a71513a99741cff, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  ZombieCount: 2
-  WaveLenght: 10
+  ZombieCount: 3
+  WaveLenght: 30
   PauseLenght: 1

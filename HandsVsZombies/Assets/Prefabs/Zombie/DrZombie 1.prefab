@@ -3433,7 +3433,7 @@ MonoBehaviour:
   - {fileID: 8086280920948555765}
   - {fileID: 1722191073553608255}
   replacementObject: {fileID: 7978727102664175461}
-  breakForce: 200
+  breakForce: 190
   isCrucial: 1
 --- !u!114 &8440389122104216448
 MonoBehaviour:
@@ -6804,7 +6804,7 @@ MonoBehaviour:
   - {fileID: 2196514965459228627}
   - {fileID: 5282427459329933544}
   replacementObject: {fileID: 8053146396722398192}
-  breakForce: 200
+  breakForce: 190
   isCrucial: 1
 --- !u!114 &7039594396680625704
 MonoBehaviour:
