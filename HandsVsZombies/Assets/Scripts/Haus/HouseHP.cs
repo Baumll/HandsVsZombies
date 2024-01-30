@@ -42,7 +42,7 @@ public class HouseHP : MonoBehaviour
         Debug.Log("ZombieDamageisAktiv");
         ZombieDamageisAktiv = false;        
         
-        if (screamingscript.closestDistance <= 0.5)
+        if (screamingscript.closestDistance <= 0.5 && screamingscript.zombies.Length > 0)
         {
             damage = damage + 1;
         }

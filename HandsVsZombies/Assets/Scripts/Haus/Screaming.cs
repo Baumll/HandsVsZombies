@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class Screaming : MonoBehaviour
 {
     public string zombieTag = "Zombie";
-    private GameObject[] zombies;
+    [HideInInspector] public GameObject[] zombies;
     private AudioSource activeScream;
 
     private float screamingDistance = 1.5f;
@@ -56,7 +56,7 @@ public class Screaming : MonoBehaviour
             if (activeScream != null && closestZombie != null && closestDistance <= screamingDistance)
             {
                 float t = closestDistance / screamingDistance;
-                float screamVolume = Mathf.Lerp(1f, 0f, t);
+                float screamVolume = Mathf.Lerp(0.8f, 0f, t);
                 activeScream.volume = screamVolume;
             }
 
@@ -70,6 +70,7 @@ public class Screaming : MonoBehaviour
         else
         {
             Debug.Log("No zombies in the scene.");
+            closestDistance = Mathf.Infinity;
         }
     }
     
@@ -80,7 +81,11 @@ public class Screaming : MonoBehaviour
         
         screamDelayIsActive = false;
         
-        activeScream.Play();
+        if (closestDistance <= screamingDistance)
+        {
+            activeScream.Play();
+            
+        }
     }
     
     private void SoundSelection()
