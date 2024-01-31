@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(GrabAbleItem))]
 public class ZombieLimbsScript : MonoBehaviour
 {
+    //Sorgt dafür das dieser Körperteil abtrennbar ist
+
     [SerializeField] private Renderer[] limbRenderer;
     [SerializeField] private GameObject replacementObject = null;
     private CharacterJoint characterJoint;
@@ -13,8 +15,8 @@ public class ZombieLimbsScript : MonoBehaviour
 
     public bool isCrucial; //Wenn true dann stribt der Zombie nach der Abtrennung
     private bool broken = false;
-    private GrabAbleItem grabAbleItem = null; //Wenn != null dann ist das das K�rperteil in der Hand
-    private SpherePointer spherePointer;
+    private GrabAbleItem grabAbleItem = null; 
+    private SpherePointer spherePointer; //Wenn != null dann ist das das K�rperteil in der Hand
     private ZombieScript topMostParent;
 
 
@@ -66,7 +68,6 @@ public class ZombieLimbsScript : MonoBehaviour
         if (!broken && spherePointer != null)
         {
             broken = true;
-            Debug.Log("break!");
             ZombieLimbsScript[] characterJointyList = GetComponentsInChildren<ZombieLimbsScript>();
 
             //Deaktiviert die abgetrennten Gliedmaßen
@@ -75,7 +76,8 @@ public class ZombieLimbsScript : MonoBehaviour
                 limb.gameObject.SetActive(false);
             }
 
-            //Hier soll eigentlich die Abgetrennte Gliedmaße Erstellt werden
+            //Hier soll eigentlich die Abgetrennte Gliedmaße Erstellt werden Aber das funktioniert nicht so wie gewollt.
+
             //if (replacementObject is not null)
             //{
             //    replacementObject.gameObject.SetActive(true);
