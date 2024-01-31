@@ -13,6 +13,7 @@ public class ZombieAudio : MonoBehaviour
     private AudioSource activeAudioSource;
     private bool isRunning = true;
     
+    //Audiosources mit allen möglichen Schreivariationen
     [SerializeField] private AudioSource source1;
     [SerializeField] private AudioSource source2;
     [SerializeField] private AudioSource source3;
@@ -28,10 +29,10 @@ public class ZombieAudio : MonoBehaviour
 
     void Start()
     {
+        //Schreialgorithmus wird gestartet
         StartCoroutine(ZombieSounds());
     }
 
-    // Update is called once per frame
     void Update()
     {
         SoundSelection();
@@ -39,6 +40,7 @@ public class ZombieAudio : MonoBehaviour
 
     }
 
+    //Zufällige Auswahl eines zu verwendenden Geräusches mit variierenden Wahrscheinlichkeiten
     private void SoundSelection()
     {
         randomIntSound = Random.Range(0, 100);
@@ -71,7 +73,7 @@ public class ZombieAudio : MonoBehaviour
         isRunning = false;
     }
     
-
+    //Abspielen des aktuell randomisierten Zombie-Schreigeräusches mit einem zufälligen Pausenwert zur Vermeidung von Überschneidungen 
     IEnumerator ZombieSounds()
     {
         while (isRunning)

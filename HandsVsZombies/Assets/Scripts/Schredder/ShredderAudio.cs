@@ -21,6 +21,7 @@ public class ShredderAudio : MonoBehaviour
 
     private void Update()
     {
+        //Spielt Schreddergeräusch ab wenn Zombie geschreddert wird
         if (!schredderSound.isPlaying && schredderScript.isSchreddering == true)
         {
             schredderSound.Play();

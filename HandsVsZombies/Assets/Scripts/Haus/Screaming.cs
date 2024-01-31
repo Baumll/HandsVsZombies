@@ -11,6 +11,7 @@ public class Screaming : MonoBehaviour
     private float screamingDistance = 1.7f;
     public float closestDistance;
 
+    //Audiosources für alle möglichen Schreigeräusche des Hauses
     [SerializeField] private AudioSource source1;
     [SerializeField] private AudioSource source2;
     [SerializeField] private AudioSource source3;
@@ -26,11 +27,13 @@ public class Screaming : MonoBehaviour
     private bool screamDelayIsActive = false;
     void Start()
     {
+        //Füllen der aktiven Schreivariable (rein technische Notwendigkeit)
         SoundSelection();
     }
 
     void Update()
     {
+        //Suchen aller Zombies in der Szene und finden des nahesten (lebendigen) Exemplars, sowie Bestimmung von dessen Distanz
         zombies = GameObject.FindGameObjectsWithTag(zombieTag);
 
         if (zombies.Length > 0)
@@ -53,6 +56,7 @@ public class Screaming : MonoBehaviour
                 }
             }
 
+            //Erhöhung der Schreilautstärke des Hauses mit abnehmender Distanz zum nahesten Zombie
             if (activeScream != null && closestZombie != null && closestDistance <= screamingDistance)
             {
                 float t = closestDistance / screamingDistance;
@@ -60,6 +64,7 @@ public class Screaming : MonoBehaviour
                 activeScream.volume = screamVolume;
             }
 
+            //Abspielen des aktiven Schreigeräusches aller 0,5 Sekunden
             if (screamDelayIsActive == false && activeScream.isPlaying == false)
             {
                 StartCoroutine(ScreamDelay());
@@ -67,13 +72,14 @@ public class Screaming : MonoBehaviour
             }
             
         }
+        //Verhindern von Bugs falls Entfernen vom Zombies aus der Reichweite nicht korrekt registriert wurde
         else
         {
-            Debug.Log("No zombies in the scene.");
             closestDistance = Mathf.Infinity;
         }
     }
     
+    //Abspielen des aktiven Schreigeräusches aller 0,5 Sekunden
     private IEnumerator ScreamDelay()
     {
         yield return new WaitForSeconds(0.5f);
@@ -88,6 +94,7 @@ public class Screaming : MonoBehaviour
         }
     }
     
+    //Auswahl eines zufälligen Schreigeräusches
     private void SoundSelection()
     {
         randomIntSound = Random.Range(0, 100);
