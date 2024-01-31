@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireBall : MonoBehaviour
@@ -9,15 +8,27 @@ public class FireBall : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        GameObject newExposion = Instantiate(explosion,transform.position,transform.rotation);
-        Destroy(gameObject);
-        explosionSound.Play();
+        GameObject newExplosion = Instantiate(explosion, transform.position, transform.rotation);
+        StartCoroutine(DestroyAfterSound());
     }
-    
+
     public void OnTriggerEnter(Collider other)
     {
-        GameObject newExposion = Instantiate(explosion,transform.position,transform.rotation);
-        Destroy(gameObject);
+        GameObject newExplosion = Instantiate(explosion, transform.position, transform.rotation);
+        StartCoroutine(DestroyAfterSound());
+    }
+
+    IEnumerator DestroyAfterSound()
+    {
+        explosionSound.transform.parent = null;
+
         explosionSound.Play();
+        
+        Destroy(gameObject);
+
+        //Warten bevor Audiosource gelöscht wird, sodass der Sound zuende spielt
+        yield return new WaitForSeconds(explosionSound.clip.length);
+        
+        Destroy(explosionSound.gameObject);
     }
 }
