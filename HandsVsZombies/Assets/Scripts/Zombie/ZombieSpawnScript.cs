@@ -7,7 +7,7 @@ public class ZombieSpawnScript : MonoBehaviour
     [SerializeField] private GameObject zombie;
     [SerializeField] private GameObject target;
 
-    public GameObject SpawnZobie()
+    public GameObject SpawnZombie()
     {
         GameObject newZombie = Instantiate(zombie, transform);
         newZombie.transform.position = transform.position;

@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
                         {
                             //Spawn Zombie
                             GameObject spawner = spawnerList[Random.Range(0, spawnerList.Length)];
-                            spawner.GetComponent<ZombieSpawnScript>().SpawnZobie();
+                            spawner.GetComponent<ZombieSpawnScript>().SpawnZombie();
                             zombiesSpawntThisWave += 1;
                         }
                     }
