@@ -37,7 +37,7 @@ public class DestroyAfterStart : MonoBehaviour
             return;
         }
         
-        if (GameManager.instance.gameIsActive)
+        if (GameManager.Instance.gameIsActive)
         {
             textMeshPro.enabled = true;
             if (!isActive)

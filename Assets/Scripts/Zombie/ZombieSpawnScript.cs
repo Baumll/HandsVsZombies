@@ -12,7 +12,7 @@ public class ZombieSpawnScript : MonoBehaviour
         GameObject newZombie = Instantiate(zombie, transform);
         newZombie.transform.position = transform.position;
         newZombie.transform.rotation = transform.rotation;
-        newZombie.GetComponent<ZombieScript>().MovePositionTransform = target.transform;
+        newZombie.GetComponent<ZombieController>().MovePositionTransform = target.transform;
         return newZombie;
     }
 }

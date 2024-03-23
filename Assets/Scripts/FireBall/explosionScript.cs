@@ -30,7 +30,7 @@ public class explosionScript : MonoBehaviour
         if (other.CompareTag("Zombie"))
         {
             Debug.Log("Zombie Collision " + other.name);
-            ZombieScript zombie = other.transform.parent.GetComponent<ZombieScript>();
+            ZombieController zombie = other.transform.parent.GetComponent<ZombieController>();
             if (zombie != null)
             {
                 print("[Explosion] Angekommen Trigger " + zombie.name);

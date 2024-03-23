@@ -43,8 +43,8 @@ public class Screaming : MonoBehaviour
 
             foreach (GameObject zombie in zombies)
             {
-                ZombieScript zombieScript = zombie.GetComponent<ZombieScript>();
-                if (zombieScript != null && zombieScript.alive)
+                ZombieController ZombieController = zombie.GetComponent<ZombieController>();
+                if (ZombieController != null && ZombieController.alive)
                 {
                     float distance = Vector3.Distance(transform.position, zombie.transform.position);
 

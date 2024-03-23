@@ -311,8 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8763bbc5ee78b4649ac10691f2a8f0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene:
-    m_Handle: 0
+  OnResetbutton:
+    m_PersistentCalls:
+      m_Calls: []
   OnStartbutton:
     m_PersistentCalls:
       m_Calls: []
+  exitButton: {fileID: 0}

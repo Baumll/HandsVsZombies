@@ -80,11 +80,11 @@ public class FireBallControllerScript : MonoBehaviour
     // Feuert Den Feuerball ab
     void Update()
     {
-        if(GameManager.instance != null)
+        if(GameManager.Instance != null)
         {
             if (handside == Direction.Left)
             {
-                if (GameManager.instance.leftCanShoot)
+                if (GameManager.Instance.leftCanShoot)
                 {
                     skinnedMeshRenderer.material = fireMaterial;
                 }
@@ -96,7 +96,7 @@ public class FireBallControllerScript : MonoBehaviour
 
             if (handside == Direction.Right)
             {
-                if (GameManager.instance.rightCanShoot)
+                if (GameManager.Instance.rightCanShoot)
                 {
                     skinnedMeshRenderer.material = fireMaterial;
                 }
@@ -111,7 +111,7 @@ public class FireBallControllerScript : MonoBehaviour
             {
                 if (!fireLeftBlock && fireLeftPressed)
                 {
-                    if (GameManager.instance.leftCanShoot)
+                    if (GameManager.Instance.leftCanShoot)
                     {
                         firering = true;
                     }
@@ -121,7 +121,7 @@ public class FireBallControllerScript : MonoBehaviour
             {
                 if (!fireRightBlock && fireRightPressed)
                 {
-                    if (GameManager.instance.rightCanShoot)
+                    if (GameManager.Instance.rightCanShoot)
                     {
                         firering = true;
                     }
@@ -135,11 +135,11 @@ public class FireBallControllerScript : MonoBehaviour
                     newFireBall.GetComponent<Rigidbody>().AddForce(fireBallSpawnPoint.forward * fireBallSpeed);
                     if (handside == Direction.Left)
                     {
-                        GameManager.instance.leftCanShoot = false;
+                        GameManager.Instance.leftCanShoot = false;
                     }
                     else
                     {
-                        GameManager.instance.rightCanShoot = false;
+                        GameManager.Instance.rightCanShoot = false;
                     }
                 }
                 Debug.Log(name + " Pew");

@@ -18,10 +18,10 @@ public class ScoreTextScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.gameIsLost)
+        if (GameManager.Instance.gameIsLost)
         {
             TextMeshPro textMeshPro = GetComponentInChildren<TextMeshPro>();
-            textMeshPro.text = startText + GameManager.instance.GetScore();
+            textMeshPro.text = startText + GameManager.Instance.GetScore();
         }
     }
 }

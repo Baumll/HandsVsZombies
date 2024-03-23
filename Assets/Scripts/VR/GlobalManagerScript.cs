@@ -47,11 +47,9 @@ public class GlobalManager : MonoBehaviour
         if (instance != null && instance != this)
         {
             Destroy(this);
+            return;
         }
-        else
-        {
-            instance = this;
-        }
+        instance = this;
     }
 
     // Start is called before the first frame update

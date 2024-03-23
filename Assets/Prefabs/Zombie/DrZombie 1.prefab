@@ -1619,6 +1619,7 @@ MonoBehaviour:
   replacementObject: {fileID: 0}
   breakForce: 200
   isCrucial: 0
+  isLeg: 0
 --- !u!114 &5776558730224733003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,6 +2238,7 @@ MonoBehaviour:
   replacementObject: {fileID: 0}
   breakForce: 200
   isCrucial: 1
+  isLeg: 0
 --- !u!114 &5820304065520732583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2536,8 @@ MonoBehaviour:
   - {fileID: 1722191073553608255}
   replacementObject: {fileID: 0}
   breakForce: 190
-  isCrucial: 1
+  isCrucial: 0
+  isLeg: 1
 --- !u!114 &8440389122104216448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,7 +2789,7 @@ MonoBehaviour:
   source8: {fileID: 4385456245452762783}
   source9: {fileID: 459026588967652545}
   minecraftSource: {fileID: 4516825464403318300}
-  zombieScript: {fileID: 3267312110700495651}
+  ZombieController: {fileID: 3267312110700495651}
 --- !u!82 &6931268002560478971
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4308,6 +4311,7 @@ MonoBehaviour:
   _standUpClipName: Stand Up
   _timeToResetBones: 0.5
   timeToStandUp: 3
+  pelvis: {fileID: 7149725150401249787}
   alive: 1
   MovePositionTransform: {fileID: 0}
 --- !u!1 &7369719256712492117
@@ -5090,6 +5094,7 @@ MonoBehaviour:
   replacementObject: {fileID: 0}
   breakForce: 200
   isCrucial: 0
+  isLeg: 0
 --- !u!114 &6146248243906869065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5361,7 +5366,8 @@ MonoBehaviour:
   - {fileID: 5282427459329933544}
   replacementObject: {fileID: 0}
   breakForce: 190
-  isCrucial: 1
+  isCrucial: 0
+  isLeg: 1
 --- !u!114 &7039594396680625704
 MonoBehaviour:
   m_ObjectHideFlags: 0

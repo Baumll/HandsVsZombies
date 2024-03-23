@@ -12,12 +12,12 @@ public class Bowl : MonoBehaviour, IMixedRealityPointerHandler
     {
         if (eventData.Handedness == Handedness.Left)
         {
-            GameManager.instance.leftCanShoot = true;   
+            GameManager.Instance.leftCanShoot = true;   
         }
         
         if (eventData.Handedness == Handedness.Right)
         {
-            GameManager.instance.rightCanShoot = true;
+            GameManager.Instance.rightCanShoot = true;
         }
     }
 

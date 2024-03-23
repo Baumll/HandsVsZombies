@@ -14,20 +14,18 @@ public class ZombieLimbsScript : MonoBehaviour
     [SerializeField] private float breakForce = 100f;
 
     public bool isCrucial; //Wenn true dann stribt der Zombie nach der Abtrennung
+    public bool isLeg;
     private bool broken = false;
     private GrabAbleItem grabAbleItem = null; 
     private SpherePointer spherePointer; //Wenn != null dann ist das das K�rperteil in der Hand
-    private ZombieScript topMostParent;
+    private ZombieController topMostParent;
 
 
     private void Start()
     {
         characterJoint = GetComponent<CharacterJoint>();
         grabAbleItem = GetComponent<GrabAbleItem>();
-        if (isCrucial)
-        {
-            topMostParent = GetComponentInParent<ZombieScript>();
-        }
+        topMostParent = GetComponentInParent<ZombieController>();
     }
 
     private void Update()
@@ -54,7 +52,7 @@ public class ZombieLimbsScript : MonoBehaviour
         DisableLimb();
         if (isCrucial)
         {
-            //transform.root.GetComponent<ZombieScript>().LoseLeg();
+            //transform.root.GetComponent<ZombieController>().LoseLeg();
         }
     }
 
@@ -65,33 +63,37 @@ public class ZombieLimbsScript : MonoBehaviour
 
     public void DisableLimb()
     {
-        if (!broken && spherePointer != null)
+        //if (spherePointer == null) return;
+        if (broken) return;
+
+        broken = true;
+        ZombieLimbsScript[] characterJointyList = GetComponentsInChildren<ZombieLimbsScript>();
+
+        //Deaktiviert die abgetrennten Gliedmaßen
+        foreach (var limb in limbRenderer)
         {
-            broken = true;
-            ZombieLimbsScript[] characterJointyList = GetComponentsInChildren<ZombieLimbsScript>();
+            limb.gameObject.SetActive(false);
+        }
 
-            //Deaktiviert die abgetrennten Gliedmaßen
-            foreach (var limb in limbRenderer)
-            {
-                limb.gameObject.SetActive(false);
-            }
+        //Hier soll eigentlich die Abgetrennte Gliedmaße Erstellt werden Aber das funktioniert nicht so wie gewollt.
 
-            //Hier soll eigentlich die Abgetrennte Gliedmaße Erstellt werden Aber das funktioniert nicht so wie gewollt.
-
-            //if (replacementObject is not null)
-            //{
-            //    replacementObject.gameObject.SetActive(true);
-            //    replacementObject.transform.SetParent(null);
-            //    replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
-            //}
+        //if (replacementObject is not null)
+        //{
+        //    replacementObject.gameObject.SetActive(true);
+        //    replacementObject.transform.SetParent(null);
+        //    replacementObject.GetComponent<GrabAbleItem>().GrabItem(spherePointer);
+        //}
             
-            grabAbleItem.FreeItem();
-            gameObject.SetActive(false);
+        grabAbleItem.FreeItem();
+        //gameObject.SetActive(false);
 
-            if (isCrucial)
-            {
-                topMostParent.Kill();
-            }
+        if (isCrucial)
+        {
+            topMostParent.Kill();
+        }
+        if (isLeg)
+        {
+            topMostParent.LoseLeg();
         }
     }
 

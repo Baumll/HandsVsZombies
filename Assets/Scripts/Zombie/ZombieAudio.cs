@@ -25,7 +25,7 @@ public class ZombieAudio : MonoBehaviour
     [SerializeField] private AudioSource source9;
     [SerializeField] private AudioSource minecraftSource;
 
-    [SerializeField] private ZombieScript zombieScript;
+    [SerializeField] private ZombieController ZombieController;
 
     void Start()
     {
@@ -80,7 +80,7 @@ public class ZombieAudio : MonoBehaviour
         {
             SoundSelection();
 
-            if (!activeAudioSource.isPlaying && zombieScript.alive)
+            if (!activeAudioSource.isPlaying && ZombieController.alive)
             {
                 activeAudioSource.Play();
                 yield return new WaitForSeconds(randomDelay);

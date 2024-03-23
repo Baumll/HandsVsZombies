@@ -33,7 +33,7 @@ public class HouseHP : MonoBehaviour
         {
             Debug.Log("[House] Zombies Haben das Haus erreicht");
             
-            GameManager.instance.GameLost();
+            GameManager.Instance.GameLost();
             loseSound.Play();
             damage = 0;
         }

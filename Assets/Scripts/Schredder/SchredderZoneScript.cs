@@ -22,8 +22,8 @@ public class SchredderZoneScript : MonoBehaviour, IMixedRealityPointerHandler
         }
         if (other.gameObject.CompareTag("Zombie"))
         {
-            Destroy(other.GetComponentInParent<ZombieScript>().gameObject);
-            GameManager.instance.AddScore(1);
+            Destroy(other.GetComponentInParent<ZombieController>().gameObject);
+            GameManager.Instance.AddScore(1);
             OnSchredder.Invoke();
         }
     }

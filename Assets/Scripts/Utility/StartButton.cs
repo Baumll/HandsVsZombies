@@ -28,7 +28,7 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
 
     private void Update()
     {
-        if (GameManager.instance.gameIsLost)
+        if (GameManager.Instance.gameIsLost)
         {
             meshRenderer.enabled = true;
             boxCollider.enabled = true;
@@ -48,12 +48,12 @@ public class NewBehaviourScript : MonoBehaviour, IMixedRealityPointerHandler
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
        
-        GameManager.instance.StartGame();
+        GameManager.Instance.StartGame();
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
         textMeshPro.enabled = false;
         exitButton.SetActive(false);
-        if (GameManager.instance.gameIsLost)
+        if (GameManager.Instance.gameIsLost)
         {
             OnResetbutton.Invoke();
         }

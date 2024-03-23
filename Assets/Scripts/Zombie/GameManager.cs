@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //Verwaltet das Spielgeschehen, Wellen, Score, Pausen... 
 
-    public static GameManager instance { get; private set; }
+    public static GameManager Instance { get; private set; }
 
     [SerializeField] private WaveScriptableObject[] waveList;
     private WaveScriptableObject activeWave;
@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //Ensure there is only one instance
-        if (instance != null && instance != this) 
+        if (Instance != null && Instance != this) 
         { 
             Destroy(this); 
         } 
         else 
-        { 
-            instance = this; 
+        {
+            Instance = this; 
         } 
     }
     
