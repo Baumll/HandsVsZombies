@@ -76,12 +76,12 @@ public class GlobalManager : MonoBehaviour
 
         if (open)
         {
-            //÷ffnet sich langsam
+            //√ñffnet sich langsam
             material.SetFloat("_Radius", (deltaTransitionTime/transitionTime) * maxRange);
         }
         else
         {
-            //Schlieﬂt sich langsam
+            //Schlie√üt sich langsam
             material.SetFloat("_Radius", (1 - deltaTransitionTime / transitionTime ) * maxRange);
             //If Lens is Closed restart Game
             if (deltaTransitionTime <= 0)

@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 31655762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3960035, y: 28.252045, z: -21.915977}
+  m_LocalPosition: {x: 3.4526036, y: 28.712646, z: -22.268177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -717,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 781122537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3677034, y: -28.021744, z: 21.739878}
+  m_LocalPosition: {x: -3.4526036, y: -28.712646, z: 22.268177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -897,7 +897,6 @@ GameObject:
   - component: {fileID: 1137105149}
   - component: {fileID: 1137105148}
   - component: {fileID: 1137105147}
-  - component: {fileID: 1137105150}
   m_Layer: 0
   m_Name: SceneTransitionPlane
   m_TagString: Untagged
@@ -992,18 +991,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137105145}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1137105150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137105145}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254499e449ec8514da4105577b48e520, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1387848083
 GameObject:
   m_ObjectHideFlags: 0

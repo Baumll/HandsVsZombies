@@ -228,7 +228,6 @@ public class ZombieController : MonoBehaviour
             if (_timeToWakeUp <= 0)
             {
                 AlignRotationToHips();
-                AlignPositionToHips();
 
                 PopulateBoneTransforms(_ragdollBoneTransforms);
 
