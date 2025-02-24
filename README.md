@@ -1,6 +1,6 @@
 # VR Zombie Apocalypse Game
 
-![Game Screenshot](images/Image1.png)
+![Game Screenshot](Images/Image1.png)
 
 ## Description
 
